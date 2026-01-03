@@ -1,13 +1,8 @@
 package com.kursach.keynumadv.screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
-public class GameScreen implements Screen {
-
-    public GameScreen(Game myGame) {
-    }
-
+public class LevelSelectScreen implements Screen {
     @Override
     public void show() {
 
