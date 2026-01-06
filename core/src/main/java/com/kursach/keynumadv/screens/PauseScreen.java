@@ -9,9 +9,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class PauseScreen extends BaseScreen {
-    private TextButton resumeButton = new TextButton("Resume", skin);
-    private TextButton settingButton = new TextButton("Settings", skin);
-    private TextButton menuButton = new TextButton("Main Menu", skin);
+    private final TextButton resumeButton = new TextButton("Resume", skin);
+    private final TextButton settingButton = new TextButton("Settings", skin);
+    private final TextButton menuButton = new TextButton("Main Menu", skin);
     public PauseScreen() {
         super();
     }

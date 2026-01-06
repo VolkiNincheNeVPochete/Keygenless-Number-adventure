@@ -9,9 +9,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class MainMenuScreen extends BaseScreen {
-    private TextButton playButton = new TextButton("Start", skin);
-    private TextButton settingButton = new TextButton("Settings", skin);
-    private TextButton exitButton = new TextButton("Exit", skin);
+    private final TextButton playButton = new TextButton("Start", skin);
+    private final TextButton settingButton = new TextButton("Settings", skin);
+    private final TextButton exitButton = new TextButton("Exit", skin);
 
     public MainMenuScreen() {
         super();

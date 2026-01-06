@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class SettingsScreen extends BaseScreen {
-    private TextButton backButton = new TextButton("Go back", skin);
+    private final TextButton backButton = new TextButton("Go back", skin);
 
     public SettingsScreen() {
         super();

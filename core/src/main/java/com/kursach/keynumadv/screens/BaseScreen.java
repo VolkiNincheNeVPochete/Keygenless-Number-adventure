@@ -22,8 +22,8 @@ public class BaseScreen implements Screen {
         table.setFillParent(true);
     }
     public BaseScreen(Game myGame, ScreenManager screMan) {
-        this.myGame = myGame;
-        this.screMan = screMan;
+        BaseScreen.myGame = myGame;
+        BaseScreen.screMan = screMan;
         this.self = this;
         table.setFillParent(true);
     }

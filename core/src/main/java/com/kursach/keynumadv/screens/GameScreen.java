@@ -3,26 +3,36 @@ package com.kursach.keynumadv.screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.kursach.keynumadv.world.CameraController;
+import com.kursach.keynumadv.world.Entities.Player;
+import com.kursach.keynumadv.world.Level;
 
-import java.nio.file.Path;
 
 public class GameScreen extends BaseScreen {
-    public Path levelPath;
-    private TextButton pauseButton = new TextButton("Pause", skin);
+    private OrthographicCamera camera;
+    private Level level;
+    private Player player;
+    private CameraController cameraController;
+    private static SpriteBatch batch;
+    private final TextButton pauseButton = new TextButton("Pause", skin);
 
     public GameScreen() {
         super();
+        this.batch = new SpriteBatch();
+        camera = new OrthographicCamera();
+        camera.setToOrtho(false, 1280, 720);
+        level = new Level("maps/level1.tmx");
+        player = new Player();
+        cameraController = new CameraController(camera, level.getWidth(), level.getHeight());
     }
     public GameScreen(Game myGame, ScreenManager screMan) {
         super(myGame, screMan);
-    }
-    public GameScreen(Game myGame, ScreenManager screMan, Path levelPath) {
-        super(myGame, screMan);
-        this.levelPath = levelPath;
     }
 
     @Override
@@ -51,15 +61,26 @@ public class GameScreen extends BaseScreen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(1f, 1f, 1f, 1f);
+        player.update(delta);
+        cameraController.follow(player.getPosition());
+
+        Gdx.gl.glClearColor(0.2f, 0.3f, 0.4f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        stage.draw();
-        stage.act(delta);
+        level.render(camera);
+
+        batch.setProjectionMatrix(camera.combined);
+        batch.begin();
+        player.render(batch);
+        batch.end();
     }
 
     @Override
     public void dispose() {
         if (stage != null) stage.dispose();
+
+        level.dispose();
+        batch.dispose();
+        player.dispose();
     }
 }

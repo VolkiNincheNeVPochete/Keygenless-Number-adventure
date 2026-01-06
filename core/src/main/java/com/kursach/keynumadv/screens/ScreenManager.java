@@ -12,7 +12,7 @@ public class ScreenManager {
     public ArrayList<Screen> screenStack = new ArrayList<>();
 
     public ScreenManager(Game myGame) {
-        this.myGame = myGame;
+        ScreenManager.myGame = myGame;
     }
 
     public void pushScreen(Screen newScreen) {
