@@ -6,36 +6,41 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
 
 public class BaseScreen implements Screen {
-    protected Game myGame;
+    protected static Game myGame;
     protected Stage stage;
-    protected final Skin skin = new Skin(Gdx.files.internal("commodore64/skin/uiskin.json"));
-    protected ScreenManager screMan;
-    protected int screenWidth = Gdx.graphics.getWidth();
-    protected int screenHeight = Gdx.graphics.getHeight();
+    protected Table table = new Table();
+    protected static Skin skin = new Skin(Gdx.files.internal("commodore64/skin/uiskin.json"));
+    protected static ScreenManager screMan;
+    protected Screen self;
 
-    public BaseScreen(Game myGame) {
+    public BaseScreen() {
+        this.self = this;
+        table.setFillParent(true);
+    }
+    public BaseScreen(Game myGame, ScreenManager screMan) {
         this.myGame = myGame;
-        this.screMan = new ScreenManager(myGame);
+        this.screMan = screMan;
+        this.self = this;
+        table.setFillParent(true);
     }
 
     @Override
     public void show() {
-        stage = new Stage();
         Gdx.input.setInputProcessor(stage);
     }
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
+        Gdx.gl.glClearColor(1f, 1f, 1f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         stage.draw();
         stage.act(delta);
     }
-
 
     @Override
     public void resize(int width, int height) {
@@ -54,12 +59,11 @@ public class BaseScreen implements Screen {
 
     @Override
     public void hide() {
-
+        Gdx.input.setInputProcessor(null);
     }
 
     @Override
     public void dispose() {
         if (stage != null) stage.dispose();
-        if (skin != null) skin.dispose();
     }
 }
