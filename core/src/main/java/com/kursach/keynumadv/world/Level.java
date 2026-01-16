@@ -1,20 +1,17 @@
 package com.kursach.keynumadv.world;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.GridPoint2;
 
 public class Level {
+    private static GridPoint2 spawn;
     public GameMap gameMap;
-    private OrthogonalTiledMapRenderer renderer;
-    private GridPoint2 spawn;
+    private IsometricWorldRenderer worldRenderer;
 
     public Level(String mapPath) {
-        TmxMapLoader loader = new TmxMapLoader();
-        this.gameMap = new GameMap(mapPath);
-        this.renderer = new OrthogonalTiledMapRenderer(gameMap.map);
-        this.spawn = gameMap.getSpawnTile();
+        gameMap = new GameMap(mapPath);
+        worldRenderer = new IsometricWorldRenderer(gameMap.mapWidth, gameMap.mapHeight);
+        spawn = gameMap.getSpawnTile();
     }
 
     public GridPoint2 getSpawn() {
@@ -23,25 +20,23 @@ public class Level {
 
     //реализовать изстеппабля
 
-
     public void render(OrthographicCamera camera) {
-        renderer.setView(camera);
-        renderer.render();
+        worldRenderer.render(camera, gameMap);
     }
 
     public void update(float delta) {
     }
 
     public float getWidth() {
-        return GameMap.widthInPixels;
+        return GameMap.getWidth();
     }
 
     public float getHeight() {
-        return GameMap.heightInPixels;
+        return GameMap.getHeight();
     }
 
     public void dispose() {
-        gameMap.dispose();
-        renderer.dispose();
+        if (worldRenderer != null) worldRenderer.dispose();
+        if (gameMap != null) gameMap.dispose();
     }
 }

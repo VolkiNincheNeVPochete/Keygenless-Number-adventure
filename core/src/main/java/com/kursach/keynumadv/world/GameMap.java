@@ -15,30 +15,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GameMap {
-    private static final float TILE_WIDTH = 128f;
-    private static final float TILE_HEIGHT = 64f;
-    public static float widthInPixels;
-    public static float heightInPixels;
+    public static int widthInPixels;
+    public static int heightInPixels;
+    public static int tileWidth;
+    public static int tileHeight;
     private static float offsetX;
     private static float offsetY;
     public int mapWidth;
     public int mapHeight;
-    public int tileWidth;
-    public int tileHeight;
     public Map<GridPoint2, ArrayList<Entity>> entities = new HashMap<>();
     public GridPoint2 spawn = null;
-    TiledMap map;
+    public TiledMap map;
 
     public GameMap(String tmxPath) {
         map = new TemplateTmxMapLoader().load(tmxPath);
         MapLayer layer = map.getLayers().get("Entities");
         offsetX = layer.getOffsetX();
         offsetY = layer.getOffsetY();
+        System.out.println(layer.getProperties());
 
-        int mapWidth = map.getProperties().get("width", Integer.class);
-        int mapHeight = map.getProperties().get("height", Integer.class);
-        int tileWidth = map.getProperties().get("tilewidth", Integer.class);
-        int tileHeight = map.getProperties().get("tileheight", Integer.class);
+        mapWidth = map.getProperties().get("width", Integer.class);
+        mapHeight = map.getProperties().get("height", Integer.class);
+        tileWidth = map.getProperties().get("tilewidth", Integer.class);
+        tileHeight = map.getProperties().get("tileheight", Integer.class);
         widthInPixels = mapWidth * tileWidth;
         heightInPixels = mapHeight * tileHeight;
 
@@ -48,14 +47,14 @@ public class GameMap {
         }
 
         MapObjects objects = layer.getObjects();
-        String type = null;
 
         for (MapObject obj : objects) {
+            String type = null;
             if (!(obj instanceof RectangleMapObject)) continue;
 
             var rect = ((RectangleMapObject) obj).getRectangle();
-            int worldX = (int) (rect.x + offsetX);
-            int worldY = (int) (rect.y + offsetY);
+            int worldX = (int) ((rect.x + offsetX));
+            int worldY = (int) (heightInPixels - tileHeight - (rect.y + offsetY));
 
             type = obj.getProperties().get("type", String.class);
 
@@ -66,31 +65,28 @@ public class GameMap {
             };
 
             if (entity != null) {
-                GridPoint2 tilePos = pixelToTile(worldX, worldY);
+                GridPoint2 tilePos = LocalRender.GridPixelToTile(worldX, worldY);
                 entities.computeIfAbsent(tilePos, k -> new ArrayList<>()).add(entity);
-                System.out.println(entities);
+                continue;
+            }
+
+            if ("spawn".equals(type)) {
+                spawn = new GridPoint2(LocalRender.GridPixelToTile(worldX, worldY));
             }
         }
     }
 
-    public static GridPoint2 pixelToTile(int px, int py) {
-        int col = px / (64);
-        int row = py / (64);
-        return new GridPoint2(col, row);
-    }
-
     public static float getWidth() {
-        return widthInPixels;
+        return widthInPixels + offsetX;
     }
 
     public static float getHeight() {
-        return heightInPixels;
+        return heightInPixels - tileHeight + offsetY;
     }
 
     public GridPoint2 getSpawnTile() {
         if (spawn == null) return new GridPoint2(0, 0);
-        GridPoint2 tile = pixelToTile(spawn.x, spawn.y);
-        return tile;
+        return spawn;
     }
 
     public ArrayList<Entity> getEntitiesOnTile(GridPoint2 tile) {

@@ -18,23 +18,64 @@ public class TemplateTmxMapLoader extends TmxMapLoader {
         return super.loadTiledMap(tmxFile, parameter, imageResolver);
     }
 
+//    @Override
+//    protected void loadObject(TiledMap map, MapObjects objects, XmlReader.Element element, float heightInPixels) {
+//        if (element.getName().equals("object")) {
+//
+//            if (!element.hasAttribute("template")) {
+//                super.loadObject(map, objects, element, heightInPixels);
+//                return;
+//            }
+//            FileHandle template = getRelativeFileHandle(tmxFile, element.getAttribute("template"));
+//            XmlReader.Element el = xml.parse(template);
+//            for (XmlReader.Element obj : el.getChildrenByName("object")) {
+//                obj.setAttribute("x", element.getAttribute("x"));
+//                obj.setAttribute("y", element.getAttribute("y"));
+//                obj.setAttribute("id", element.getAttribute("id"));
+//                System.out.println(obj);
+//                super.loadObject(map, objects, obj, heightInPixels);
+//                return;
+//            }
+//        }
+//    }
+
     @Override
     protected void loadObject(TiledMap map, MapObjects objects, XmlReader.Element element, float heightInPixels) {
-        if (element.getName().equals("object")) {
+        if (!element.getName().equals("object")) {
+            return;
+        }
 
-            if (!element.hasAttribute("template")) {
-                super.loadObject(map, objects, element, heightInPixels);
-                return;
-            }
-            FileHandle template = getRelativeFileHandle(tmxFile, element.getAttribute("template"));
-            XmlReader.Element el = xml.parse(template);
-            for (XmlReader.Element obj : el.getChildrenByName("object")) {
-                obj.setAttribute("x", element.getAttribute("x"));
-                obj.setAttribute("y", element.getAttribute("y"));
-                obj.setAttribute("id", element.getAttribute("id"));
-                super.loadObject(map, objects, obj, heightInPixels);
-                return;
+        if (!element.hasAttribute("template")) {
+            super.loadObject(map, objects, element, heightInPixels);
+            return;
+        }
+
+        FileHandle templateFile = getRelativeFileHandle(tmxFile, element.getAttribute("template"));
+        XmlReader.Element templateRoot = xml.parse(templateFile);
+
+        XmlReader.Element templateObj = templateRoot.getChildByName("object");
+        if (templateObj == null) {
+            return;
+        }
+        XmlReader.Element merged = new XmlReader.Element("object", templateRoot);
+
+        for (String attr : templateObj.getAttributes().keys()) {
+            merged.setAttribute(attr, templateObj.getAttribute(attr));
+        }
+
+        merged.setAttribute("x", element.getAttribute("x"));
+        merged.setAttribute("y", element.getAttribute("y"));
+        merged.setAttribute("id", element.getAttribute("id"));
+
+        if (element.getChildren() != null) {
+            for (XmlReader.Element child : element.getChildren()) {
+                if ("properties".equals(child.getName())) {
+                    merged.addChild(child);
+                }
             }
         }
+
+        // Теперь передаём объединённый объект в стандартный загрузчик
+        super.loadObject(map, objects, merged, heightInPixels);
     }
 }

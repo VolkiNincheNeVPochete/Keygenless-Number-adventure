@@ -11,6 +11,15 @@ public class Enemy extends Entity {
 
     @Override
     public void onStep(Player stepper) {
+        StartFight();
 
+    }
+
+    private void StartFight() {
+
+    }
+
+    private float GetReward() {
+        return 0f;
     }
 }

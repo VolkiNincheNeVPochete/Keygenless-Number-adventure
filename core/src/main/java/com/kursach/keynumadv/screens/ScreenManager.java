@@ -42,7 +42,7 @@ public class ScreenManager {
 
     public void ShowGame() {
         screenStack.clear();
-        createdScreen = new GameScreen();
+        createdScreen = new GameScreen(myGame, this);
         screenStack.add(createdScreen);
         myGame.setScreen(createdScreen);
     }

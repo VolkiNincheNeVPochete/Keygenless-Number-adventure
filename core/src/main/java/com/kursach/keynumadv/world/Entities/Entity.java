@@ -1,11 +1,26 @@
 package com.kursach.keynumadv.world.Entities;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.math.GridPoint2;
+import com.badlogic.gdx.math.Vector2;
 import com.kursach.keynumadv.Interfaces.StepReactive;
-import com.kursach.keynumadv.world.Player;
 
 public abstract class Entity implements StepReactive {
-    protected int x, y;
+    protected GridPoint2 tilePos;
+    protected Vector2 pixPos;
+    protected Texture texture;
 
-    public void OnStep(Player stepper) {
+    public Vector2 getPixPos() {
+        return pixPos;
     }
+
+    public GridPoint2 getTilePos() {
+        return tilePos;
+    }
+
+    public void render(Batch batch, GridPoint2 tilePos) {
+    }
+
+    ;
 }
