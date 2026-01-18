@@ -1,9 +1,15 @@
 package com.kursach.keynumadv.world.Entities;
 
+import com.badlogic.gdx.math.GridPoint2;
+import com.kursach.keynumadv.world.BattleSystem;
 import com.kursach.keynumadv.world.Player;
 
 public class Chest extends Entity {
 
+
+    public Chest(GridPoint2 tilePos) {
+        super(tilePos);
+    }
 
     @Override
     public boolean isStepable() {
@@ -11,7 +17,7 @@ public class Chest extends Entity {
     }
 
     @Override
-    public void onStep(Player stepper) {
+    public void onStep(Player stepper, BattleSystem battleSystem) {
 
     }
 }

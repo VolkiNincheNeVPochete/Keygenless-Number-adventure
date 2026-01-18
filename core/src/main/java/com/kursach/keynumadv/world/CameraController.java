@@ -2,6 +2,7 @@ package com.kursach.keynumadv.world;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
+import net.dermetfan.utils.math.MathUtils;
 
 public class CameraController {
     private OrthographicCamera camera;
@@ -20,8 +21,8 @@ public class CameraController {
         camera.position.x = target.x;
         camera.position.y = target.y;
 
-        //camera.position.x = MathUtils.clamp(camera.position.x, viewportWidth / 2f, levelWidth - viewportWidth / 2f);
-        //camera.position.y = MathUtils.clamp(camera.position.y, viewportHeight / 2f, levelHeight - viewportHeight / 2f);
+//        camera.position.x = MathUtils.clamp(camera.position.x, viewportWidth / 2f, levelWidth - viewportWidth / 2f);
+//        camera.position.y = MathUtils.clamp(camera.position.y, viewportHeight / 2f, levelHeight - viewportHeight / 2f);
 
         camera.update();
     }

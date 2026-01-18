@@ -4,15 +4,24 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.GridPoint2;
+import com.badlogic.gdx.math.Vector2;
+import com.kursach.keynumadv.world.BattleSystem;
 import com.kursach.keynumadv.world.LocalRender;
 import com.kursach.keynumadv.world.Player;
 
 public class Wall extends Entity {
     static Texture texture = new Texture(Gdx.files.internal("sprites/wall.png"));
-    ;
 
     public Wall() {
-
+        super();
+    }
+    public Wall(GridPoint2 tilePos) {
+        super(tilePos);
+    }
+    @Override
+    public void render(Batch batch) {
+        Vector2 pos = LocalRender.TileToPixel(tilePos.x-1, tilePos.y);
+        batch.draw(this.texture, pos.x, pos.y);
     }
 
     public static void dispose() {
@@ -22,19 +31,12 @@ public class Wall extends Entity {
         }
     }
 
-    public void render(Batch batch, GridPoint2 tilePos) {
-        if (texture != null) {
-            var pos = LocalRender.TileToPixel(tilePos);
-            batch.draw(texture, pos.x, pos.y);
-        }
-    }
-
     @Override
     public boolean isStepable() {
         return false;
     }
 
     @Override
-    public void onStep(Player stepper) {
+    public void onStep(Player stepper, BattleSystem battleSystem) {
     }
 }

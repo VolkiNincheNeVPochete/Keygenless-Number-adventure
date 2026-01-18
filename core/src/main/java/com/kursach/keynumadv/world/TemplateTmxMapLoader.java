@@ -18,27 +18,6 @@ public class TemplateTmxMapLoader extends TmxMapLoader {
         return super.loadTiledMap(tmxFile, parameter, imageResolver);
     }
 
-//    @Override
-//    protected void loadObject(TiledMap map, MapObjects objects, XmlReader.Element element, float heightInPixels) {
-//        if (element.getName().equals("object")) {
-//
-//            if (!element.hasAttribute("template")) {
-//                super.loadObject(map, objects, element, heightInPixels);
-//                return;
-//            }
-//            FileHandle template = getRelativeFileHandle(tmxFile, element.getAttribute("template"));
-//            XmlReader.Element el = xml.parse(template);
-//            for (XmlReader.Element obj : el.getChildrenByName("object")) {
-//                obj.setAttribute("x", element.getAttribute("x"));
-//                obj.setAttribute("y", element.getAttribute("y"));
-//                obj.setAttribute("id", element.getAttribute("id"));
-//                System.out.println(obj);
-//                super.loadObject(map, objects, obj, heightInPixels);
-//                return;
-//            }
-//        }
-//    }
-
     @Override
     protected void loadObject(TiledMap map, MapObjects objects, XmlReader.Element element, float heightInPixels) {
         if (!element.getName().equals("object")) {

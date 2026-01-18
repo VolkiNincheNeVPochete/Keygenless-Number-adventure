@@ -10,7 +10,6 @@ public class Level {
 
     public Level(String mapPath) {
         gameMap = new GameMap(mapPath);
-        worldRenderer = new IsometricWorldRenderer(gameMap.mapWidth, gameMap.mapHeight);
         spawn = gameMap.getSpawnTile();
     }
 
@@ -19,10 +18,6 @@ public class Level {
     }
 
     //реализовать изстеппабля
-
-    public void render(OrthographicCamera camera) {
-        worldRenderer.render(camera, gameMap);
-    }
 
     public void update(float delta) {
     }

@@ -27,7 +27,7 @@ public class Tile implements StepReactive {
     }
 
     @Override
-    public void onStep(Player stepper) {
+    public void onStep(Player stepper, BattleSystem battleSystem) {
 
     }
 }

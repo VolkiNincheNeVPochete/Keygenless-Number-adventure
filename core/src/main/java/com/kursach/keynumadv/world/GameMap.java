@@ -5,6 +5,7 @@ import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
 import com.badlogic.gdx.math.GridPoint2;
 import com.kursach.keynumadv.world.Entities.Entity;
 import com.kursach.keynumadv.world.Entities.Portal;
@@ -54,7 +55,7 @@ public class GameMap {
 
             var rect = ((RectangleMapObject) obj).getRectangle();
             int worldX = (int) ((rect.x + offsetX));
-            int worldY = (int) (heightInPixels - tileHeight - (rect.y + offsetY));
+            int worldY = (int) ((rect.y + offsetY));
 
             type = obj.getProperties().get("type", String.class);
 
@@ -64,8 +65,14 @@ public class GameMap {
                 default -> null;
             };
 
+            if ("test".equals(type)) {
+                GridPoint2 tile = LocalRender.PixelToTile((int)rect.x, (int)rect.y);
+                System.out.println("Test object at pixel (" + rect.x + ", " + rect.y + ") -> tile " + tile);
+            }
+
             if (entity != null) {
                 GridPoint2 tilePos = LocalRender.GridPixelToTile(worldX, worldY);
+                entity.SetPos(tilePos);
                 entities.computeIfAbsent(tilePos, k -> new ArrayList<>()).add(entity);
                 continue;
             }

@@ -14,13 +14,19 @@ public class Player {
     private GridPoint2 targetTile = null;
     private Vector2 startPixel;
     private Vector2 targetPixel;
+    private BattleSystem battleSystem;
+    private float VALUE;
 
-    public Player(GridPoint2 spawnTile) {
+    public Player(GridPoint2 spawnTile, BattleSystem battleSystem) {
         this.tilePos = new GridPoint2(spawnTile.x, spawnTile.y);
         this.pixelPos = LocalRender.TileToPixel(tilePos.x, tilePos.y);
         this.startPixel = new Vector2(pixelPos);
         this.targetPixel = new Vector2(pixelPos);
-        System.out.println(pixelPos);
+        this.battleSystem = battleSystem;
+    }
+
+    public float getVALUE() {
+        return VALUE;
     }
 
     public void update(float delta) {
@@ -51,7 +57,7 @@ public class Player {
         int newCol = tilePos.x + dx;
         int newRow = tilePos.y + dy;
 
-        if (newCol == 0 || newCol > map.mapWidth || newRow == 0 || newRow > map.mapHeight) {
+        if (newCol < 0 || newCol >= map.mapWidth || newRow < 0 || newRow >= map.mapHeight) {
             return false;
         }
 
