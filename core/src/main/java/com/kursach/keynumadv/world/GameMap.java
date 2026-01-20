@@ -7,6 +7,7 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
 import com.badlogic.gdx.math.GridPoint2;
+import com.badlogic.gdx.math.Vector2;
 import com.kursach.keynumadv.world.Entities.Entity;
 import com.kursach.keynumadv.world.Entities.Portal;
 import com.kursach.keynumadv.world.Entities.Wall;
@@ -14,6 +15,8 @@ import com.kursach.keynumadv.world.Entities.Wall;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.kursach.keynumadv.world.LocalRender.*;
 
 public class GameMap {
     public static int widthInPixels;
@@ -33,14 +36,11 @@ public class GameMap {
         MapLayer layer = map.getLayers().get("Entities");
         offsetX = layer.getOffsetX();
         offsetY = layer.getOffsetY();
-        System.out.println(layer.getProperties());
 
         mapWidth = map.getProperties().get("width", Integer.class);
         mapHeight = map.getProperties().get("height", Integer.class);
-        tileWidth = map.getProperties().get("tilewidth", Integer.class);
-        tileHeight = map.getProperties().get("tileheight", Integer.class);
-        widthInPixels = mapWidth * tileWidth;
-        heightInPixels = mapHeight * tileHeight;
+        widthInPixels = (int) (mapWidth * TILE_WIDTH);
+        heightInPixels = (int) (mapHeight * TILE_HEIGHT);
 
         if (layer == null) {
             System.err.println("Слой 'Entities' не найден в " + tmxPath);
@@ -54,8 +54,8 @@ public class GameMap {
             if (!(obj instanceof RectangleMapObject)) continue;
 
             var rect = ((RectangleMapObject) obj).getRectangle();
-            int worldX = (int) ((rect.x + offsetX));
-            int worldY = (int) ((rect.y + offsetY));
+            float worldX = ((rect.x + offsetX));
+            float worldY = ((rect.y + offsetY));
 
             type = obj.getProperties().get("type", String.class);
 
@@ -65,20 +65,16 @@ public class GameMap {
                 default -> null;
             };
 
-            if ("test".equals(type)) {
-                GridPoint2 tile = LocalRender.PixelToTile((int)rect.x, (int)rect.y);
-                System.out.println("Test object at pixel (" + rect.x + ", " + rect.y + ") -> tile " + tile);
-            }
-
             if (entity != null) {
-                GridPoint2 tilePos = LocalRender.GridPixelToTile(worldX, worldY);
+                GridPoint2 tilePos = GridPixelToTile(worldX, worldY);
                 entity.SetPos(tilePos);
                 entities.computeIfAbsent(tilePos, k -> new ArrayList<>()).add(entity);
                 continue;
             }
 
             if ("spawn".equals(type)) {
-                spawn = new GridPoint2(LocalRender.GridPixelToTile(worldX, worldY));
+                GridPoint2 tilePos = GridPixelToTile(worldX, worldY);
+                spawn = tilePos;
             }
         }
     }

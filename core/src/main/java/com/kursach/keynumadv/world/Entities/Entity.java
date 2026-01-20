@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.math.Vector2;
 import com.kursach.keynumadv.Interfaces.StepReactive;
-import com.kursach.keynumadv.world.BattleSystem;
+import com.kursach.keynumadv.world.BusyManager;
 import com.kursach.keynumadv.world.LocalRender;
 import com.kursach.keynumadv.world.Player;
 
@@ -41,12 +41,12 @@ public abstract class Entity implements StepReactive {
     }
 
     public void render(Batch batch) {
-        Vector2 pos = LocalRender.TileToPixel(tilePos.x-1, tilePos.y);
+        Vector2 pos = LocalRender.TileToPixel(tilePos.x, tilePos.y);
         batch.draw(this.texture, pos.x, pos.y);
     }
 
     @Override
-    public void onStep(Player player, BattleSystem battleSystem) {
-        battleSystem.onEntityFinished();
+    public void onStep(Player player, BusyManager busyManager) {
+        busyManager.onEntityFinished();
     }
 }

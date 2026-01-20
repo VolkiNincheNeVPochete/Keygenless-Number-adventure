@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.math.Vector2;
-import com.kursach.keynumadv.world.BattleSystem;
+import com.kursach.keynumadv.world.BusyManager;
 import com.kursach.keynumadv.world.LocalRender;
 import com.kursach.keynumadv.world.Player;
 
@@ -20,7 +20,7 @@ public class Portal extends Entity {
     }
     @Override
     public void render(Batch batch) {
-        Vector2 pos = LocalRender.TileToPixel(tilePos.x-1, tilePos.y);
+        Vector2 pos = LocalRender.TileToPixel(tilePos.x, tilePos.y);
         batch.draw(this.texture, pos.x, pos.y);
     }
     @Override
@@ -29,7 +29,7 @@ public class Portal extends Entity {
     }
 
     @Override
-    public void onStep(Player stepper, BattleSystem battleSystem) {
-
+    public void onStep(Player stepper, BusyManager busyManager) {
+        System.out.println("leave");
     }
 }

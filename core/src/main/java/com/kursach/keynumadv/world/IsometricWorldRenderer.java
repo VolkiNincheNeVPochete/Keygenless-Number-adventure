@@ -30,8 +30,7 @@ public class IsometricWorldRenderer {
 
     public void render(
         OrthographicCamera camera,
-        Map<GridPoint2, ArrayList<Entity>> entities,
-        Player player
+        Map<GridPoint2, ArrayList<Entity>> entities
     ) {
         float camX = camera.position.x;
         float camY = camera.position.y;
@@ -54,10 +53,23 @@ public class IsometricWorldRenderer {
 
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-
-        for (int col = minCol; col <= maxCol; col++) {
-            for (int s = minSum; s <= maxSum; s++) {
-                var row = s - col;
+//
+//        for (int col = minCol; col <= maxCol; col++) {
+//            for (int s = minSum; s <= maxSum; s++) {
+//                var row = s - col;
+//                if (col >= mapWidth || row >= mapHeight) continue;
+//
+//                GridPoint2 tile = new GridPoint2(col, row);
+//                var list = entities.get(tile);
+//                if (list != null) {
+//                    for (Entity e : list) {
+//                        e.render(batch);
+//                    }
+//                }
+//            }
+//        }
+        for (int col = -mapTWidth; col <= mapTWidth; col++) {
+            for (int row = -mapTHeight; row <= mapTHeight; row++) {
                 if (col >= mapWidth || row >= mapHeight) continue;
 
                 GridPoint2 tile = new GridPoint2(col, row);

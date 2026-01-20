@@ -3,12 +3,12 @@ package com.kursach.keynumadv.world;
 import com.badlogic.gdx.utils.Array;
 import com.kursach.keynumadv.Interfaces.StepReactive;
 
-public class BattleSystem {
+public class BusyManager {
     private Array<StepReactive> queue;
     private boolean isActive = false;
     private Player currentPlayer;
 
-    public BattleSystem() {
+    public BusyManager() {
         this.queue = new Array<>();
     }
 
@@ -40,7 +40,6 @@ public class BattleSystem {
 
     private void finishBattle() {
         isActive = false;
-        // Можно вызвать callback, если нужно
     }
 
     public boolean isActive() {

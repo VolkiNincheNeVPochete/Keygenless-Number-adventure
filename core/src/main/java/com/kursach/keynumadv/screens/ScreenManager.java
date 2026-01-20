@@ -21,14 +21,11 @@ public class ScreenManager {
             screenStack.add(current);
         }
         myGame.setScreen(newScreen);
-        System.out.println(screenStack.toString() + "\n\n");
     }
 
     public void popScreen() {
         if (screenStack.size() > 0) {
-            System.out.println("pop " + myGame.getScreen());
             myGame.setScreen(screenStack.remove(screenStack.size() - 1));
-            System.out.println("\nand screenStack is " + screenStack + "\n\n");
         } else {
             ShowMainMenu();
         }
