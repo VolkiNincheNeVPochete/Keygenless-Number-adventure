@@ -2,7 +2,7 @@ package com.kursach.keynumadv.screens;
 
 import com.badlogic.gdx.Screen;
 
-public class GameOverScreen implements Screen {
+public class GameOverScreen extends BaseScreen {
 
     @Override
     public void show() {

@@ -2,7 +2,6 @@ package com.kursach.keynumadv.world.Entities;
 
 import com.badlogic.gdx.math.GridPoint2;
 import com.kursach.keynumadv.world.BusyManager;
-import com.kursach.keynumadv.world.Player;
 
 public class Enemy extends Entity {
     private float VALUE;
@@ -18,14 +17,18 @@ public class Enemy extends Entity {
     }
 
     @Override
-    public void onStep(Player player, BusyManager busyManager) {
-        if (player.getVALUE() > VALUE) {
-            System.out.println("Player wins!");
-        } else {
-            System.out.println("Enemy wins!");
-        }
+    public void onStep() {
 
-        busyManager.onEntityFinished();
+    }
+
+    @Override
+    public void onFinish() {
+
+    }
+
+    @Override
+    public boolean isFinished() {
+        return false;
     }
 
     private void StartFight() {

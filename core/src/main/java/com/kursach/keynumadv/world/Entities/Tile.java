@@ -1,10 +1,11 @@
-package com.kursach.keynumadv.world;
+package com.kursach.keynumadv.world.Entities;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.kursach.keynumadv.Interfaces.StepReactive;
+import com.kursach.keynumadv.world.BusyManager;
 
 public class Tile implements StepReactive {
     private SpriteBatch batch;
@@ -27,7 +28,17 @@ public class Tile implements StepReactive {
     }
 
     @Override
-    public void onStep(Player stepper, BusyManager busyManager) {
+    public void onStep() {
 
+    }
+
+    @Override
+    public void onFinish() {
+
+    }
+
+    @Override
+    public boolean isFinished() {
+        return false;
     }
 }

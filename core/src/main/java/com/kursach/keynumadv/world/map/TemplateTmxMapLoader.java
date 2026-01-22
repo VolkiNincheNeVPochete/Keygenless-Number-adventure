@@ -1,4 +1,4 @@
-package com.kursach.keynumadv.world;
+package com.kursach.keynumadv.world.map;
 
 
 import com.badlogic.gdx.files.FileHandle;

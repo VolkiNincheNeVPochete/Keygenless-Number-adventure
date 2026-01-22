@@ -17,8 +17,8 @@ public class MainMenuScreen extends BaseScreen {
         super();
     }
 
-    public MainMenuScreen(Game myGame, ScreenManager screMan) {
-        super(myGame, screMan);
+    public MainMenuScreen(Game myGame) {
+        super(myGame);
     }
 
     @Override
@@ -44,21 +44,21 @@ public class MainMenuScreen extends BaseScreen {
             playButton.addListener(new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
-                    screMan.pushScreen(new GameScreen(myGame, screMan));
+                    ScreenManager.pushScreen(new GameScreen(myGame));
                 }
             });
 
             settingButton.addListener(new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
-                    screMan.pushScreen(new SettingsScreen());
+                    ScreenManager.pushScreen(new SettingsScreen(myGame));
                 }
             });
 
             exitButton.addListener(new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
-                    screMan.exit();
+                    ScreenManager.exit();
                 }
             });
         }

@@ -7,10 +7,10 @@ import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.math.Vector2;
 import com.kursach.keynumadv.world.BusyManager;
 import com.kursach.keynumadv.world.LocalRender;
-import com.kursach.keynumadv.world.Player;
 
 public class Wall extends Entity {
     static Texture texture = new Texture(Gdx.files.internal("sprites/wall.png"));
+    enum State {};
 
     public Wall() {
         super();
@@ -20,8 +20,7 @@ public class Wall extends Entity {
     }
     @Override
     public void render(Batch batch) {
-        Vector2 pos = LocalRender.TileToPixel(tilePos.x, tilePos.y);
-        batch.draw(this.texture, pos.x, pos.y);
+        batch.draw(this.texture, pixPos.x, pixPos.y);
     }
 
     public static void dispose() {
@@ -37,6 +36,15 @@ public class Wall extends Entity {
     }
 
     @Override
-    public void onStep(Player stepper, BusyManager busyManager) {
+    public void onStep() {
+    }
+
+    @Override
+    public void onFinish() {
+    }
+
+    @Override
+    public boolean isFinished() {
+        return false;
     }
 }

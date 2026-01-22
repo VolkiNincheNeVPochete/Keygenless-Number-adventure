@@ -1,4 +1,4 @@
-package com.kursach.keynumadv.world;
+package com.kursach.keynumadv.world.Entities;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;

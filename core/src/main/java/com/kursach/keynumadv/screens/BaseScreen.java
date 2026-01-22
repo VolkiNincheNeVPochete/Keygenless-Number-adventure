@@ -13,7 +13,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 public class BaseScreen extends ScreenAdapter {
     protected static Game myGame;
     protected static Skin skin = new Skin(Gdx.files.internal("commodore64/skin/uiskin.json"));
-    protected static ScreenManager screMan;
     protected Stage stage;
     protected Table table = new Table();
     protected Screen self;
@@ -23,9 +22,8 @@ public class BaseScreen extends ScreenAdapter {
         table.setFillParent(true);
     }
 
-    public BaseScreen(Game myGame, ScreenManager screMan) {
+    public BaseScreen(Game myGame) {
         BaseScreen.myGame = myGame;
-        BaseScreen.screMan = screMan;
         this.self = this;
         table.setFillParent(true);
     }

@@ -17,8 +17,8 @@ public class PauseScreen extends BaseScreen {
         super();
     }
 
-    public PauseScreen(Game myGame, ScreenManager screMan) {
-        super(myGame, screMan);
+    public PauseScreen(Game myGame) {
+        super(myGame);
     }
 
     @Override
@@ -29,21 +29,21 @@ public class PauseScreen extends BaseScreen {
             resumeButton.addListener(new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
-                    screMan.popScreen();
+                    ScreenManager.popScreen();
                 }
             });
 
             settingButton.addListener(new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
-                    screMan.pushScreen(new SettingsScreen());
+                    ScreenManager.pushScreen(new SettingsScreen());
                 }
             });
 
             menuButton.addListener(new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
-                    screMan.ShowMainMenu();
+                    ScreenManager.ShowMainMenu();
                 }
             });
 

@@ -15,8 +15,8 @@ public class SettingsScreen extends BaseScreen {
         super();
     }
 
-    public SettingsScreen(Game myGame, ScreenManager screMan) {
-        super(myGame, screMan);
+    public SettingsScreen(Game myGame) {
+        super(myGame);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class SettingsScreen extends BaseScreen {
             backButton.addListener(new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
-                    screMan.popScreen();
+                    ScreenManager.popScreen();
                 }
             });
         }

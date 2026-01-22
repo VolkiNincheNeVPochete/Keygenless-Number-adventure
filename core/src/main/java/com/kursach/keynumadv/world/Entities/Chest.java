@@ -2,7 +2,6 @@ package com.kursach.keynumadv.world.Entities;
 
 import com.badlogic.gdx.math.GridPoint2;
 import com.kursach.keynumadv.world.BusyManager;
-import com.kursach.keynumadv.world.Player;
 
 public class Chest extends Entity {
 
@@ -17,7 +16,17 @@ public class Chest extends Entity {
     }
 
     @Override
-    public void onStep(Player stepper, BusyManager busyManager) {
+    public void onStep() {
 
+    }
+
+    @Override
+    public void onFinish() {
+
+    }
+
+    @Override
+    public boolean isFinished() {
+        return false;
     }
 }

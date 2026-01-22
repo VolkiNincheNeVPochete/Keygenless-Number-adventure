@@ -9,6 +9,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
 import com.badlogic.gdx.math.Vector3;
 import com.kursach.keynumadv.world.*;
+import com.kursach.keynumadv.world.Entities.CameraController;
+import com.kursach.keynumadv.world.Entities.Entity;
+import com.kursach.keynumadv.world.Entities.Player;
+import com.kursach.keynumadv.world.map.IsometricWorldRenderer;
+import com.kursach.keynumadv.world.map.Level;
 
 import static com.kursach.keynumadv.world.LocalRender.*;
 
@@ -23,8 +28,8 @@ public class GameScreen extends BaseScreen {
     private IsometricWorldRenderer entityrenderer;
     private BusyManager busyManager;
 
-    public GameScreen(Game myGame, ScreenManager screMan) {
-        super(myGame, screMan);
+    public GameScreen(Game myGame) {
+        super(myGame);
         init();
     }
 
@@ -35,11 +40,13 @@ public class GameScreen extends BaseScreen {
         camera.setToOrtho(Y_DOWN, CAM_WIDTH, CAM_HEIGHT);
         camera.update();
 
-        level = new Level("maps/level3.tmx");
+        level = new Level("maps/level1.tmx");
 
         busyManager = new BusyManager();
-
         player = new Player(level.getSpawn(), busyManager);
+
+        Entity.setPlayer(player);
+        Entity.setBusyManager(busyManager);
 
         cameraController = new CameraController(
             camera,
@@ -47,7 +54,7 @@ public class GameScreen extends BaseScreen {
             level.getHeight()
         );
 
-        cameraController.follow(player.getPixelPosition());
+        cameraController.follow(player.getVisualPixelPosition());
         renderer = new IsometricTiledMapRenderer(level.gameMap.map);
         entityrenderer = new IsometricWorldRenderer((int) level.getWidth(), (int) level.getHeight());
     }
@@ -69,7 +76,7 @@ public class GameScreen extends BaseScreen {
 
         handleInput();
         player.update(delta);
-        cameraController.follow(player.getPixelPosition());
+        cameraController.follow(player.getVisualPixelPosition());
     }
 
     @Override

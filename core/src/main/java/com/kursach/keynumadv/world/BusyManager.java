@@ -2,46 +2,57 @@ package com.kursach.keynumadv.world;
 
 import com.badlogic.gdx.utils.Array;
 import com.kursach.keynumadv.Interfaces.StepReactive;
+import com.kursach.keynumadv.world.Entities.Entity;
+import com.kursach.keynumadv.world.Entities.Player;
+
+import java.util.ArrayList;
 
 public class BusyManager {
-    private Array<StepReactive> queue;
+    private ArrayList<Entity> queue;
     private boolean isActive = false;
+    private boolean isRealize = false;
     private Player currentPlayer;
 
     public BusyManager() {
-        this.queue = new Array<>();
+        this.queue = new ArrayList<>();
     }
 
-    public void startBattle(Player player, Array<StepReactive> entities) {
-        if (isActive) return;
-        this.queue.clear();
-        this.queue.addAll(entities);
-        this.currentPlayer = player;
-        this.isActive = true;
-        processNext();
-    }
+    public void CreateQueue (ArrayList<Entity> entities) {
+        if (entities != null) {
+            queue = entities;
+        }
 
-    private void processNext() {
-        if (queue.size == 0) {
-            finishBattle();
+    }
+    public void Start() {
+        if (!queue.isEmpty()) {
+            isActive = true;
+        }
+    }
+    public void Update () {
+        if (queue.isEmpty()){
             return;
         }
-
-        StepReactive current = queue.first();
-        current.onStep(currentPlayer, this);
-    }
-
-    public void onEntityFinished() {
-        if (queue.size > 0) {
-            queue.removeIndex(0);
+        if (!isRealize) {
+            RealiseEntity();
         }
-        processNext();
+        if (GetFinished()) {
+            FinalEntity();
+        }
     }
-
-    private void finishBattle() {
-        isActive = false;
+    public void RealiseEntity () {
+        GetCurrentEntity().onStep();
+        isRealize = true;
     }
-
+    public void FinalEntity () {
+        GetCurrentEntity().onFinish();
+        isRealize = false;
+    }
+    public boolean GetFinished() {
+        return GetCurrentEntity().isFinished();
+    }
+    public Entity GetCurrentEntity() {
+        return queue.getFirst();
+    }
     public boolean isActive() {
         return isActive;
     }

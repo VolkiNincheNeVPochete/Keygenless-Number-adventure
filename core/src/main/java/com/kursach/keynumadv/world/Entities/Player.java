@@ -1,4 +1,4 @@
-package com.kursach.keynumadv.world;
+package com.kursach.keynumadv.world.Entities;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -6,7 +6,9 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.math.Vector2;
-import com.kursach.keynumadv.world.Entities.Entity;
+import com.kursach.keynumadv.world.BusyManager;
+import com.kursach.keynumadv.world.map.GameMap;
+import com.kursach.keynumadv.world.map.Level;
 
 import java.util.ArrayList;
 
@@ -16,7 +18,6 @@ public class Player {
     private GridPoint2 tilePos;
     private Vector2 pixelPos;
     private boolean isMoving = false;
-    private boolean isBusy = false;
     private float moveProgress = 0f;
     private GridPoint2 targetTile = null;
     private Vector2 startPixel;
@@ -47,8 +48,9 @@ public class Player {
     }
 
     public void update(float delta) {
-        if (isBusy) {
-
+        if (busyManager.isActive()) {
+            busyManager.Update();
+            return;
         }
         if (isMoving) {
             moveProgress += delta * 4.0f;
@@ -69,10 +71,12 @@ public class Player {
         targetTile = null;
         startPixel.set(pixelPos);
         targetPixel.set(pixelPos);
+
+        busyManager.Start();
     }
 
     public boolean tryMove(int dx, int dy, GameMap map) {
-        if (isMoving || isBusy) return false;
+        if (isMoving || busyManager.isActive()) return false;
 
         int newCol = tilePos.x + dx;
         int newRow = tilePos.y + dy;
@@ -93,6 +97,7 @@ public class Player {
         targetTile = newTile;
         isMoving = true;
         moveProgress = 0f;
+        busyManager.CreateQueue(map.getEntitiesOnTile(newTile));
         return true;
     }
 
@@ -106,15 +111,18 @@ public class Player {
         }
         return true;
     }
-
-    public Vector2 getPixelPosition() {
+    public Vector2 getVisualPixelPosition() {
         return new Vector2(pixelPos.x+OFFSET_X, pixelPos.y+OFFSET_Y);
     }
-
-    public GridPoint2 getTilePosition() {
+    public GridPoint2 getVisualTilePosition() {
         return new GridPoint2(tilePos.x+OFFSET_TX, tilePos.y+OFFSET_TY);
     }
-
+    public Vector2 getPixelPosition() {
+        return new Vector2(pixelPos.x, pixelPos.y);
+    }
+    public GridPoint2 getTilePosition() {
+        return new GridPoint2(tilePos.x, tilePos.y);
+    }
     public void render() {
         uiBatch.begin();
         playerFont.draw(uiBatch, "F(x) = " + VALUE, pixelPos.x, pixelPos.y);

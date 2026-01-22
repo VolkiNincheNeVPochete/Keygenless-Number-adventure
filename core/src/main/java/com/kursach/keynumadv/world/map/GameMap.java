@@ -1,13 +1,11 @@
-package com.kursach.keynumadv.world;
+package com.kursach.keynumadv.world.map;
 
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
 import com.badlogic.gdx.math.GridPoint2;
-import com.badlogic.gdx.math.Vector2;
 import com.kursach.keynumadv.world.Entities.Entity;
 import com.kursach.keynumadv.world.Entities.Portal;
 import com.kursach.keynumadv.world.Entities.Wall;

@@ -1,6 +1,5 @@
-package com.kursach.keynumadv.world;
+package com.kursach.keynumadv.world.map;
 
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.GridPoint2;
 
 public class Level {
