@@ -32,9 +32,11 @@ public class BusyManager {
         if (queue.isEmpty()){
             return;
         }
+
         if (!isRealize) {
             RealiseEntity();
         }
+
         if (GetFinished()) {
             FinalEntity();
         }
@@ -46,6 +48,7 @@ public class BusyManager {
     public void FinalEntity () {
         GetCurrentEntity().onFinish();
         isRealize = false;
+        queue.removeFirst();
     }
     public boolean GetFinished() {
         return GetCurrentEntity().isFinished();

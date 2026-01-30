@@ -78,6 +78,7 @@ public class IsometricWorldRenderer {
                 if (list != null) {
                     for (Entity e : list) {
                         e.render(batch);
+                        batch.setColor(1,1,1,1);
                     }
                 }
             }
