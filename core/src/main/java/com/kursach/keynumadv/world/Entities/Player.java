@@ -8,11 +8,10 @@ import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.math.Vector2;
 import com.kursach.keynumadv.world.BusyManager;
 import com.kursach.keynumadv.world.map.GameMap;
-import com.kursach.keynumadv.world.map.Level;
 
 import java.util.ArrayList;
 
-import static com.kursach.keynumadv.world.LocalRender.*;
+import static com.kursach.keynumadv.world.LocalRender.TileToPixel;
 
 public class Player {
     private GridPoint2 tilePos;

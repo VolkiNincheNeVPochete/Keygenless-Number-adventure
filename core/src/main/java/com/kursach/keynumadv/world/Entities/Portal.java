@@ -4,10 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.GridPoint2;
-import com.badlogic.gdx.math.Vector2;
 import com.kursach.keynumadv.screens.ScreenManager;
-import com.kursach.keynumadv.world.BusyManager;
-import com.kursach.keynumadv.world.LocalRender;
 
 import java.util.Timer;
 import java.util.TimerTask;

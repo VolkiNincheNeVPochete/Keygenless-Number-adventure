@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
 import com.badlogic.gdx.math.Vector3;
-import com.kursach.keynumadv.world.*;
+import com.kursach.keynumadv.world.BusyManager;
 import com.kursach.keynumadv.world.Entities.CameraController;
 import com.kursach.keynumadv.world.Entities.Entity;
 import com.kursach.keynumadv.world.Entities.Player;

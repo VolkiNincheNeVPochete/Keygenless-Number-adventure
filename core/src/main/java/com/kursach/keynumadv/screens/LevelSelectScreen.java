@@ -1,7 +1,5 @@
 package com.kursach.keynumadv.screens;
 
-import com.badlogic.gdx.Screen;
-
 public class LevelSelectScreen extends BaseScreen {
     @Override
     public void show() {

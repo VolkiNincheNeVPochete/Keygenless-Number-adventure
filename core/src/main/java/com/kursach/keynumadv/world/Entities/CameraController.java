@@ -2,7 +2,6 @@ package com.kursach.keynumadv.world.Entities;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
-import net.dermetfan.utils.math.MathUtils;
 
 public class CameraController {
     private OrthographicCamera camera;

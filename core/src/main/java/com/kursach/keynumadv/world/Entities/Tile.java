@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.kursach.keynumadv.Interfaces.StepReactive;
-import com.kursach.keynumadv.world.BusyManager;
 
 public class Tile implements StepReactive {
     private SpriteBatch batch;

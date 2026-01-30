@@ -1,7 +1,6 @@
 package com.kursach.keynumadv.world.Entities;
 
 import com.badlogic.gdx.math.GridPoint2;
-import com.kursach.keynumadv.world.BusyManager;
 
 public class Chest extends Entity {
 

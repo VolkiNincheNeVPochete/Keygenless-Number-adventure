@@ -10,7 +10,6 @@ import com.kursach.keynumadv.world.Entities.Entity;
 import com.kursach.keynumadv.world.LocalRender;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class IsometricWorldRenderer {

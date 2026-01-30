@@ -1,7 +1,5 @@
 package com.kursach.keynumadv.world;
 
-import com.badlogic.gdx.utils.Array;
-import com.kursach.keynumadv.Interfaces.StepReactive;
 import com.kursach.keynumadv.world.Entities.Entity;
 import com.kursach.keynumadv.world.Entities.Player;
 
