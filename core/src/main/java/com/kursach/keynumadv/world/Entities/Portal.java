@@ -44,7 +44,6 @@ public class Portal extends Entity {
     @Override
     public void render(Batch batch) {
         batch.setColor((255-count)/255, (255-count)/255, (count)/255, 1);
-        System.out.println(batch.getColor() + " " + count);
         batch.draw(texture, pixPos.x, pixPos.y);
     }
     @Override

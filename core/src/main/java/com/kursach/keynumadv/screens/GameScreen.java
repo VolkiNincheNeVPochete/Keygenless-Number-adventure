@@ -71,8 +71,7 @@ public class GameScreen extends BaseScreen {
 
         renderer.setView(camera);
         renderer.render();
-        entityrenderer.render(camera, level.gameMap.entities);
-        player.render();
+        entityrenderer.render(camera, level.gameMap.entities, player);
 
         handleInput();
         player.update(delta);

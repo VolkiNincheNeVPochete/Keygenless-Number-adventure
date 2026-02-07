@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.math.Vector2;
 import com.kursach.keynumadv.world.Entities.Entity;
+import com.kursach.keynumadv.world.Entities.Player;
 import com.kursach.keynumadv.world.LocalRender;
 
 import java.util.ArrayList;
@@ -30,7 +31,8 @@ public class IsometricWorldRenderer {
 
     public void render(
         OrthographicCamera camera,
-        Map<GridPoint2, ArrayList<Entity>> entities
+        Map<GridPoint2, ArrayList<Entity>> entities,
+        Player player
     ) {
         float camX = camera.position.x;
         float camY = camera.position.y;
@@ -53,21 +55,7 @@ public class IsometricWorldRenderer {
 
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-//
-//        for (int col = minCol; col <= maxCol; col++) {
-//            for (int s = minSum; s <= maxSum; s++) {
-//                var row = s - col;
-//                if (col >= mapWidth || row >= mapHeight) continue;
-//
-//                GridPoint2 tile = new GridPoint2(col, row);
-//                var list = entities.get(tile);
-//                if (list != null) {
-//                    for (Entity e : list) {
-//                        e.render(batch);
-//                    }
-//                }
-//            }
-//        }
+
         for (int col = -mapTWidth; col <= mapTWidth; col++) {
             for (int row = -mapTHeight; row <= mapTHeight; row++) {
                 if (col >= mapWidth || row >= mapHeight) continue;
@@ -80,6 +68,8 @@ public class IsometricWorldRenderer {
                         batch.setColor(1,1,1,1);
                     }
                 }
+
+                if (col == player.getTilePosition().x && row == player.getTilePosition().y) player.render(batch);
             }
         }
 
