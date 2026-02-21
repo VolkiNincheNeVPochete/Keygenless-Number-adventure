@@ -3,7 +3,6 @@ package com.kursach.keynumadv.world.Entities;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -53,7 +52,7 @@ public class Player {
         this.playerFont.setColor(Color.BLACK);
         this.VALUE = 1;
 
-        playerSheet = new Texture(Gdx.files.internal("sprites/character/SpriteSheet.png"));
+        playerSheet = new Texture(Gdx.files.internal("sprites/player/SpriteSheet.png"));
         playerSheet.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
 
         int spriteWidth = 23;
@@ -72,7 +71,7 @@ public class Player {
             }
         }
 
-        currentFrame = sprites[currentDirection][0]; // idle
+        currentFrame = sprites[currentDirection][0];
         animTime = 0f;
     }
 
@@ -81,7 +80,8 @@ public class Player {
     }
 
     public void update(float delta) {
-        if (busyManager.isActive()) {
+        System.out.println(busyManager.IsRealize() + " " + busyManager.IsActive());
+        if (busyManager.IsActive()) {
             busyManager.Update();
             return;
         }
@@ -116,7 +116,7 @@ public class Player {
     }
 
     public boolean tryMove(int dx, int dy, GameMap map) {
-        if (isMoving || busyManager.isActive()) return false;
+        if (isMoving || busyManager.IsActive()) return false;
 
         currentDirection = DIRECTIONS[dx+1][dy+1];
 

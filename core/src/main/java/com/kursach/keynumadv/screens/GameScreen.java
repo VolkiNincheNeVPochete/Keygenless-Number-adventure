@@ -25,7 +25,7 @@ public class GameScreen extends BaseScreen {
     private OrthographicCamera camera;
     private SpriteBatch batch;
     private IsometricTiledMapRenderer renderer;
-    private IsometricWorldRenderer entityrenderer;
+    private IsometricWorldRenderer entityRenderer;
     private BusyManager busyManager;
 
     public GameScreen(Game myGame) {
@@ -56,7 +56,7 @@ public class GameScreen extends BaseScreen {
 
         cameraController.follow(player.getVisualPixelPosition());
         renderer = new IsometricTiledMapRenderer(level.gameMap.map);
-        entityrenderer = new IsometricWorldRenderer((int) level.getWidth(), (int) level.getHeight());
+        entityRenderer = new IsometricWorldRenderer((int) level.getWidth(), (int) level.getHeight());
     }
 
     @Override
@@ -71,7 +71,7 @@ public class GameScreen extends BaseScreen {
 
         renderer.setView(camera);
         renderer.render();
-        entityrenderer.render(camera, level.gameMap.entities, player);
+        entityRenderer.render(camera, level.gameMap.entities, player);
 
         handleInput();
         player.update(delta);

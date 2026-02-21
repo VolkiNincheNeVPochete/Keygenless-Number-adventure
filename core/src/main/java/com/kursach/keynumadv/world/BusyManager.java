@@ -46,15 +46,21 @@ public class BusyManager {
     public void FinalEntity () {
         GetCurrentEntity().onFinish();
         isRealize = false;
-        queue.removeFirst();
+        queue.remove(0);
+        if (queue.isEmpty()) {
+            isActive = false;
+        }
     }
     public boolean GetFinished() {
         return GetCurrentEntity().isFinished();
     }
     public Entity GetCurrentEntity() {
-        return queue.getFirst();
+        return queue.get(0);
     }
-    public boolean isActive() {
+    public boolean IsActive() {
         return isActive;
+    }
+    public boolean IsRealize() {
+        return isRealize;
     }
 }

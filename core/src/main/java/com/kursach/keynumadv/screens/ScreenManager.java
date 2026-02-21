@@ -75,5 +75,6 @@ public class ScreenManager {
 
     public static void exit() {
         Gdx.app.exit();
+        System.exit(0);
     }
 }

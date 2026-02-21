@@ -6,6 +6,7 @@ import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.GridPoint2;
+import com.kursach.keynumadv.world.Entities.Enemy;
 import com.kursach.keynumadv.world.Entities.Entity;
 import com.kursach.keynumadv.world.Entities.Portal;
 import com.kursach.keynumadv.world.Entities.Wall;
@@ -60,6 +61,7 @@ public class GameMap {
             Entity entity = switch (type) {
                 case "wall" -> new Wall();
                 case "portal" -> new Portal();
+                case "enemy" -> new Enemy();
                 default -> null;
             };
 
