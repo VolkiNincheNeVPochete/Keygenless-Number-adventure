@@ -2,6 +2,9 @@ package com.kursach.keynumadv.screens;
 
 public class GameOverScreen extends BaseScreen {
 
+    public GameOverScreen(float playerVALUE) {
+    }
+
     @Override
     public void show() {
 

@@ -15,17 +15,22 @@ public class Chest extends Entity {
     }
 
     @Override
-    public void onStep() {
+    public void onStep(Player currentPlayer) {
 
     }
 
     @Override
-    public void onFinish() {
+    public void onFinish(Player currentPlayer) {
 
     }
 
     @Override
     public boolean isFinished() {
+        return false;
+    }
+
+    @Override
+    public boolean isFinalized() {
         return false;
     }
 }

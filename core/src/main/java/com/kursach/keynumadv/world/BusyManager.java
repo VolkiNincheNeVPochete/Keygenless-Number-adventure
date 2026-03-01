@@ -36,15 +36,22 @@ public class BusyManager {
         }
 
         if (GetFinished()) {
-            FinalEntity();
+            if (GetFinalized()) {
+                FinalizeEntity();
+                return;
+            }
+            FinishEntity();
         }
     }
     public void RealiseEntity () {
-        GetCurrentEntity().onStep();
+        GetCurrentEntity().onStep(currentPlayer);
         isRealize = true;
     }
-    public void FinalEntity () {
-        GetCurrentEntity().onFinish();
+    public void FinishEntity () {
+        GetCurrentEntity().onFinish(currentPlayer);
+    }
+    public void FinalizeEntity () {
+        GetCurrentEntity().Reward(currentPlayer);
         isRealize = false;
         queue.remove(0);
         if (queue.isEmpty()) {
@@ -54,6 +61,9 @@ public class BusyManager {
     public boolean GetFinished() {
         return GetCurrentEntity().isFinished();
     }
+    public boolean GetFinalized() {
+        return GetCurrentEntity().isFinalized();
+    }
     public Entity GetCurrentEntity() {
         return queue.get(0);
     }
@@ -62,5 +72,8 @@ public class BusyManager {
     }
     public boolean IsRealize() {
         return isRealize;
+    }
+    public void SetCurrentPlayer(Player player) {
+        currentPlayer = player;
     }
 }

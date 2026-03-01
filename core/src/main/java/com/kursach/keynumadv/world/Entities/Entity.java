@@ -9,8 +9,7 @@ import com.kursach.keynumadv.Interfaces.StepReactive;
 import com.kursach.keynumadv.world.BusyManager;
 import com.kursach.keynumadv.world.LocalRender;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public abstract class Entity implements StepReactive {
     protected GridPoint2 tilePos;
@@ -20,8 +19,8 @@ public abstract class Entity implements StepReactive {
     protected static BusyManager busyManager;
     public enum State{};
     protected boolean isFinished;
+    protected boolean isFinalized;
     protected Timer timer;
-    protected TimerTask timerTask;
     protected ShaderProgram shaderProgram;
     protected int OFFSET_X  = 0;
     protected int OFFSET_TX = 0;
@@ -39,7 +38,6 @@ public abstract class Entity implements StepReactive {
     }
     protected void init() {
         this.isFinished = false;
-        timer = new Timer();
     }
     public void SetPos(GridPoint2 tilePos) {
         this.tilePos = tilePos;

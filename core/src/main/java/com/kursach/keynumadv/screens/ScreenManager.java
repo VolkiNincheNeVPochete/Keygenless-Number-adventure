@@ -62,7 +62,7 @@ public class ScreenManager {
     public static void ShowLevelSelectScreen() {
     }
 
-    public static void ShowLevelCompleteScreen() {
+    public static void ShowLevelCompleteScreen(float value) {
         screenStack.clear();
         createdScreen = new LevelCompleteScreen();
         screenStack.add(createdScreen);

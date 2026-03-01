@@ -48,6 +48,7 @@ public class Player {
         this.startPixel = new Vector2();
         this.targetPixel = new Vector2();
         this.busyManager = busyManager;
+        this.busyManager.SetCurrentPlayer(this);
         this.playerFont = new BitmapFont(Gdx.files.internal("commodore64/raw/commodore-64.fnt"));
         this.playerFont.setColor(Color.BLACK);
         this.VALUE = 1;
@@ -80,7 +81,6 @@ public class Player {
     }
 
     public void update(float delta) {
-        System.out.println(busyManager.IsRealize() + " " + busyManager.IsActive());
         if (busyManager.IsActive()) {
             busyManager.Update();
             return;
@@ -152,6 +152,9 @@ public class Player {
             }
         }
         return true;
+    }
+    public void updateValue(Float dValue) {
+        VALUE += dValue;
     }
     public Vector2 getVisualPixelPosition() {
         return new Vector2(pixelPos.x+OFFSET_X, pixelPos.y+OFFSET_Y);

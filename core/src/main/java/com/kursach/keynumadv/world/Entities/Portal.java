@@ -6,17 +6,16 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.GridPoint2;
 import com.kursach.keynumadv.screens.ScreenManager;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class Portal extends Entity {
+    private float count;
     static Texture texture = new Texture(Gdx.files.internal("sprites/portal.png"));
     enum State {
         UNACTIVE,
         STEPPED;
     }
     private State state = State.UNACTIVE;
-    private float count;
     public Portal() {
         super();
     }
@@ -27,18 +26,7 @@ public class Portal extends Entity {
     @Override
     protected void init() {
         this.isFinished = false;
-        timer = new Timer();
         count = 255f;
-        this.timerTask = new TimerTask() {
-            @Override
-            public void run() {
-                count--;
-                if (count <= 0) {
-                    isFinished = true;
-                    timer.cancel();
-                }
-            }
-        };
     }
 
     @Override
@@ -51,19 +39,35 @@ public class Portal extends Entity {
         return true;
     }
     @Override
-    public void onStep() {
+    public void onStep(Player currentPlayer) {
         System.out.println("Going to leave");
         state = State.STEPPED;
-        timer.schedule(timerTask, 0, 10);
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    count--;
+                    if (count <= 0) {
+                        isFinished = true;
+                        timer.cancel();
+                        timer = null;
+                    }
+                }
+            }, 0, 10);
     }
 
     @Override
-    public void onFinish() {
-        ScreenManager.ShowLevelCompleteScreen();
+    public void onFinish(Player currentPlayer) {
+        ScreenManager.ShowLevelCompleteScreen(currentPlayer.getVALUE());
     }
 
     @Override
     public boolean isFinished() {
         return isFinished;
+    }
+
+    @Override
+    public boolean isFinalized() {
+        return false;
     }
 }

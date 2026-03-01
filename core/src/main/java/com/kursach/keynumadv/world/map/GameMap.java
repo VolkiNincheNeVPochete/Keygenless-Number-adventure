@@ -11,9 +11,8 @@ import com.kursach.keynumadv.world.Entities.Entity;
 import com.kursach.keynumadv.world.Entities.Portal;
 import com.kursach.keynumadv.world.Entities.Wall;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.File;
+import java.util.*;
 
 import static com.kursach.keynumadv.world.LocalRender.*;
 
@@ -31,24 +30,39 @@ public class GameMap {
     public TiledMap map;
 
     public GameMap(String tmxPath) {
+
+        NormalBlyatParser.TmxMap tmx = null;
+        try {
+            tmx = NormalBlyatParser.parse(new File("assets/" + tmxPath));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        NormalBlyatParser.TmxLayer tmxLayer = NormalBlyatParser.getLayerByName(tmx, "Entities");
+
         map = new TemplateTmxMapLoader().load(tmxPath);
         MapLayer layer = map.getLayers().get("Entities");
+
+        if (layer == null | tmxLayer == null) {
+            System.err.println("Слой 'Entities' не найден в " + tmxPath);
+            return;
+        }
+
         offsetX = layer.getOffsetX();
         offsetY = layer.getOffsetY();
-
         mapWidth = map.getProperties().get("width", Integer.class);
         mapHeight = map.getProperties().get("height", Integer.class);
         widthInPixels = (int) (mapWidth * TILE_WIDTH);
         heightInPixels = (int) (mapHeight * TILE_HEIGHT);
 
-        if (layer == null) {
-            System.err.println("Слой 'Entities' не найден в " + tmxPath);
-            return;
-        }
-
         MapObjects objects = layer.getObjects();
+        List<NormalBlyatParser.TmxObject> tmxObjects = tmxLayer.objects;
 
-        for (MapObject obj : objects) {
+        for (int ind = 0; ind < objects.getCount(); ind++) {
+            MapObject                       obj = objects.get(ind);
+            NormalBlyatParser.TmxObject     tmxObj = tmxObjects.get(ind);
+
+            System.out.println(obj + " + " + tmxObj);
+
             String type = null;
             if (!(obj instanceof RectangleMapObject)) continue;
 
@@ -61,7 +75,7 @@ public class GameMap {
             Entity entity = switch (type) {
                 case "wall" -> new Wall();
                 case "portal" -> new Portal();
-                case "enemy" -> new Enemy();
+                case "enemy" -> new Enemy(tmxObj.getFloat("VALUE",1f));
                 default -> null;
             };
 

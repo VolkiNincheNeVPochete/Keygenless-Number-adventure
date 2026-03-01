@@ -30,9 +30,11 @@ public class TemplateTmxMapLoader extends TmxMapLoader {
         XmlReader.Element templateRoot = xml.parse(templateFile);
 
         XmlReader.Element templateObj = templateRoot.getChildByName("object");
+
         if (templateObj == null) {
             return;
         }
+
         XmlReader.Element merged = new XmlReader.Element("object", templateRoot);
 
         for (String attr : templateObj.getAttributes().keys()) {
