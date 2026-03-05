@@ -10,6 +10,6 @@ public class MyGame extends Game {
     @Override
     public void create() {
         new ScreenManager(this);
-        ScreenManager.pushScreen(new GameScreen(this));
+        ScreenManager.pushScreen(new MainMenuScreen(this));
     }
 }

@@ -33,7 +33,7 @@ public class GameMap {
 
         NormalParser.TmxMap tmx = null;
         try {
-            tmx = NormalParser.parse(new File("assets/" + tmxPath));
+            tmx = NormalParser.parse(new File(tmxPath));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

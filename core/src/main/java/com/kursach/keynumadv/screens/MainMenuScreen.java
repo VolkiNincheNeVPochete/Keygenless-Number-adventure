@@ -44,7 +44,7 @@ public class MainMenuScreen extends BaseScreen {
             playButton.addListener(new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
-                    ScreenManager.pushScreen(new GameScreen(myGame));
+                    ScreenManager.ShowLevelSelectScreen();
                 }
             });
 

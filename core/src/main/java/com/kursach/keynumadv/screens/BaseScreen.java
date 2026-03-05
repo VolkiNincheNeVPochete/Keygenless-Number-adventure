@@ -14,17 +14,19 @@ public class BaseScreen extends ScreenAdapter {
     protected static Game myGame;
     protected static Skin skin = new Skin(Gdx.files.internal("commodore64/skin/uiskin.json"));
     protected Stage stage;
-    protected Table table = new Table();
+    protected Table table;
     protected Screen self;
 
     public BaseScreen() {
         this.self = this;
+        this.table = new Table(skin);
         table.setFillParent(true);
     }
 
     public BaseScreen(Game myGame) {
         BaseScreen.myGame = myGame;
         this.self = this;
+        this.table = new Table(skin);
         table.setFillParent(true);
     }
 

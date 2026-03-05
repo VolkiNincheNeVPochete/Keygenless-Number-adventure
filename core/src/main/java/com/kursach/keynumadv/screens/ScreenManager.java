@@ -39,8 +39,12 @@ public class ScreenManager {
     }
 
     public static void ShowGame() {
+        ShowGame("maps/level1.tmx");
+    }
+
+    public static void ShowGame(String levelPath) {
         screenStack.clear();
-        createdScreen = new GameScreen(myGame);
+        createdScreen = new GameScreen(myGame, levelPath);
         screenStack.add(createdScreen);
         myGame.setScreen(createdScreen);
     }
@@ -60,6 +64,10 @@ public class ScreenManager {
     }
 
     public static void ShowLevelSelectScreen() {
+        screenStack.clear();
+        createdScreen = new LevelSelectScreen(myGame);
+        screenStack.add(createdScreen);
+        myGame.setScreen(createdScreen);
     }
 
     public static void ShowLevelCompleteScreen(float value) {
@@ -69,9 +77,12 @@ public class ScreenManager {
         myGame.setScreen(createdScreen);
     }
 
-    public static void ShowLevelGameOverScreen() {
+    public static void ShowGameOverScreen(float value) {
+        screenStack.clear();
+        createdScreen = new GameOverScreen(myGame, value);
+        screenStack.add(createdScreen);
+        myGame.setScreen(createdScreen);
     }
-
 
     public static void exit() {
         Gdx.app.exit();

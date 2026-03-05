@@ -33,9 +33,17 @@ public class GameScreen extends BaseScreen {
     private BusyManager busyManager;
     private Stage stage;
     private Label valueLabel;
+    private String levelPath;
 
     public GameScreen(Game myGame) {
         super(myGame);
+        this.levelPath = "maps/level3.tmx"; // По умолчанию
+        init();
+    }
+
+    public GameScreen(Game myGame, String levelPath) {
+        super(myGame);
+        this.levelPath = levelPath;
         init();
     }
     private void init() {
@@ -54,7 +62,7 @@ public class GameScreen extends BaseScreen {
         camera.setToOrtho(Y_DOWN, CAM_WIDTH, CAM_HEIGHT);
         camera.update();
 
-        level = new Level("maps/level2.tmx");
+        level = new Level(levelPath);
 
         busyManager = new BusyManager();
         player = new Player(level.getSpawn(), busyManager);
