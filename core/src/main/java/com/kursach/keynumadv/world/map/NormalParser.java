@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.*;
 
-public class NormalBlyatParser {
+public class NormalParser {
 
     // ========== Контейнеры данных ==========
 

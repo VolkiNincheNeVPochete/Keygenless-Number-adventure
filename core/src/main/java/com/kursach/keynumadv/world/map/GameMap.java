@@ -31,13 +31,13 @@ public class GameMap {
 
     public GameMap(String tmxPath) {
 
-        NormalBlyatParser.TmxMap tmx = null;
+        NormalParser.TmxMap tmx = null;
         try {
-            tmx = NormalBlyatParser.parse(new File("assets/" + tmxPath));
+            tmx = NormalParser.parse(new File("assets/" + tmxPath));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        NormalBlyatParser.TmxLayer tmxLayer = NormalBlyatParser.getLayerByName(tmx, "Entities");
+        NormalParser.TmxLayer tmxLayer = NormalParser.getLayerByName(tmx, "Entities");
 
         map = new TemplateTmxMapLoader().load(tmxPath);
         MapLayer layer = map.getLayers().get("Entities");
@@ -55,11 +55,11 @@ public class GameMap {
         heightInPixels = (int) (mapHeight * TILE_HEIGHT);
 
         MapObjects objects = layer.getObjects();
-        List<NormalBlyatParser.TmxObject> tmxObjects = tmxLayer.objects;
+        List<NormalParser.TmxObject> tmxObjects = tmxLayer.objects;
 
         for (int ind = 0; ind < objects.getCount(); ind++) {
             MapObject                       obj = objects.get(ind);
-            NormalBlyatParser.TmxObject     tmxObj = tmxObjects.get(ind);
+            NormalParser.TmxObject     tmxObj = tmxObjects.get(ind);
 
             System.out.println(obj + " + " + tmxObj);
 

@@ -56,11 +56,15 @@ public class IsometricWorldRenderer {
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
 
-        for (int col = -mapTWidth; col <= mapTWidth; col++) {
-            for (int row = -mapTHeight; row <= mapTHeight; row++) {
-                if (col >= mapWidth || row >= mapHeight) continue;
+        int rCol;
+        int rRow;
+        for (int row = mapTHeight; row >= 0; row--) {
+            for (int cc = mapTHeight - row; cc >= 0; cc--){
 
-                GridPoint2 tile = new GridPoint2(col, row);
+                rCol = cc;
+                rRow = row + cc;
+
+                GridPoint2 tile = new GridPoint2(rCol, rRow);
                 var list = entities.get(tile);
                 if (list != null) {
                     for (Entity e : list) {
@@ -69,7 +73,25 @@ public class IsometricWorldRenderer {
                     }
                 }
 
-                if (col == player.getTilePosition().x && row == player.getTilePosition().y) player.render(batch);
+                if (rCol == player.getTilePosition().x && rRow == player.getTilePosition().y) player.render(batch);
+            }
+        }
+        for (int col = 0; col <= mapTWidth; col++) {
+            for (int cc = mapTWidth - col; cc >= 0; cc--){
+
+                rCol = col + cc;
+                rRow = cc;
+
+                GridPoint2 tile = new GridPoint2(rCol, rRow);
+                var list = entities.get(tile);
+                if (list != null) {
+                    for (Entity e : list) {
+                        e.render(batch);
+                        batch.setColor(1,1,1,1);
+                    }
+                }
+
+                if (rCol == player.getTilePosition().x && rRow == player.getTilePosition().y) player.render(batch);
             }
         }
 
