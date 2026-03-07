@@ -1,89 +1,524 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.0" orientation="isometric" renderorder="right-down" width="50" height="50" tilewidth="128" tileheight="64" infinite="0" nextlayerid="3" nextobjectid="56">
+<map version="1.10" tiledversion="1.10.0" orientation="isometric" renderorder="right-down" width="40" height="30" tilewidth="128" tileheight="64" infinite="0" nextlayerid="3" nextobjectid="464">
  <tileset firstgid="1" source="../sprites/Tile.tsx"/>
- <layer id="1" name="Tiles" width="50" height="50">
+ <layer id="1" name="Слой тайлов 1" width="40" height="30">
   <data encoding="csv">
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 </data>
  </layer>
- <objectgroup draworder="index" id="2" name="Entities">
-  <object id="24" template="../sprites/portal.tx" type="portal" x="1216" y="1152"/>
-  <object id="2" template="../sprites/spawn.tx" x="1408" y="1600"/>
-  <object id="30" template="../sprites/enemy.tx" type="enemy" x="1216" y="1216">
+ <objectgroup id="2" name="Entities">
+  <object id="1" template="../sprites/wall.tx" x="128" y="0"/>
+  <object id="2" template="../sprites/wall.tx" x="0" y="0"/>
+  <object id="3" template="../sprites/wall.tx" x="64" y="0"/>
+  <object id="4" template="../sprites/wall.tx" x="0" y="64"/>
+  <object id="5" template="../sprites/wall.tx" x="0" y="128"/>
+  <object id="6" template="../sprites/wall.tx" x="0" y="192"/>
+  <object id="7" template="../sprites/wall.tx" x="128" y="64"/>
+  <object id="8" template="../sprites/wall.tx" x="128" y="128"/>
+  <object id="9" template="../sprites/wall.tx" x="0" y="256"/>
+  <object id="10" template="../sprites/wall.tx" x="0" y="320"/>
+  <object id="11" template="../sprites/wall.tx" x="192" y="0"/>
+  <object id="12" template="../sprites/wall.tx" x="256" y="0"/>
+  <object id="13" template="../sprites/wall.tx" x="320" y="0"/>
+  <object id="14" template="../sprites/wall.tx" x="384" y="0"/>
+  <object id="15" template="../sprites/wall.tx" x="448" y="0"/>
+  <object id="16" template="../sprites/wall.tx" x="512" y="0"/>
+  <object id="17" template="../sprites/wall.tx" x="576" y="0"/>
+  <object id="18" template="../sprites/wall.tx" x="640" y="0"/>
+  <object id="19" template="../sprites/wall.tx" x="704" y="0"/>
+  <object id="20" template="../sprites/wall.tx" x="768" y="0"/>
+  <object id="21" template="../sprites/wall.tx" x="832" y="0"/>
+  <object id="22" template="../sprites/wall.tx" x="896" y="0"/>
+  <object id="23" template="../sprites/wall.tx" x="960" y="0"/>
+  <object id="24" template="../sprites/wall.tx" x="1024" y="0"/>
+  <object id="25" template="../sprites/wall.tx" x="1088" y="0"/>
+  <object id="26" template="../sprites/wall.tx" x="1152" y="0"/>
+  <object id="27" template="../sprites/wall.tx" x="1216" y="0"/>
+  <object id="28" template="../sprites/wall.tx" x="1280" y="0"/>
+  <object id="29" template="../sprites/wall.tx" x="1344" y="0"/>
+  <object id="30" template="../sprites/wall.tx" x="1408" y="0"/>
+  <object id="31" template="../sprites/wall.tx" x="1472" y="0"/>
+  <object id="32" template="../sprites/wall.tx" x="1536" y="0"/>
+  <object id="33" template="../sprites/wall.tx" x="1600" y="0"/>
+  <object id="34" template="../sprites/wall.tx" x="1664" y="0"/>
+  <object id="35" template="../sprites/wall.tx" x="1728" y="0"/>
+  <object id="36" template="../sprites/wall.tx" x="1792" y="0"/>
+  <object id="37" template="../sprites/wall.tx" x="1856" y="0"/>
+  <object id="38" template="../sprites/wall.tx" x="1920" y="0"/>
+  <object id="39" template="../sprites/wall.tx" x="1984" y="0"/>
+  <object id="40" template="../sprites/wall.tx" x="2048" y="0"/>
+  <object id="41" template="../sprites/wall.tx" x="2112" y="0"/>
+  <object id="42" template="../sprites/wall.tx" x="2176" y="0"/>
+  <object id="43" template="../sprites/wall.tx" x="2240" y="0"/>
+  <object id="44" template="../sprites/wall.tx" x="2304" y="0"/>
+  <object id="45" template="../sprites/wall.tx" x="2368" y="0"/>
+  <object id="46" template="../sprites/wall.tx" x="2432" y="0"/>
+  <object id="47" template="../sprites/wall.tx" x="2496" y="0"/>
+  <object id="48" template="../sprites/wall.tx" x="2496" y="64"/>
+  <object id="49" template="../sprites/wall.tx" x="2496" y="128"/>
+  <object id="50" template="../sprites/wall.tx" x="2496" y="192"/>
+  <object id="51" template="../sprites/wall.tx" x="2496" y="256"/>
+  <object id="52" template="../sprites/wall.tx" x="2496" y="320"/>
+  <object id="53" template="../sprites/wall.tx" x="2496" y="384"/>
+  <object id="54" template="../sprites/wall.tx" x="2496" y="448"/>
+  <object id="63" template="../sprites/wall.tx" x="2496" y="512"/>
+  <object id="64" template="../sprites/wall.tx" x="2496" y="576"/>
+  <object id="65" template="../sprites/wall.tx" x="2496" y="640"/>
+  <object id="66" template="../sprites/wall.tx" x="2496" y="704"/>
+  <object id="67" template="../sprites/wall.tx" x="2496" y="768"/>
+  <object id="68" template="../sprites/wall.tx" x="2496" y="832"/>
+  <object id="69" template="../sprites/wall.tx" x="2496" y="896"/>
+  <object id="70" template="../sprites/wall.tx" x="2496" y="960"/>
+  <object id="71" template="../sprites/wall.tx" x="2496" y="1024"/>
+  <object id="72" template="../sprites/wall.tx" x="2496" y="1088"/>
+  <object id="73" template="../sprites/wall.tx" x="2496" y="1152"/>
+  <object id="74" template="../sprites/wall.tx" x="2496" y="1216"/>
+  <object id="75" template="../sprites/wall.tx" x="2496" y="1280"/>
+  <object id="76" template="../sprites/wall.tx" x="2496" y="1344"/>
+  <object id="77" template="../sprites/wall.tx" x="2496" y="1408"/>
+  <object id="78" template="../sprites/wall.tx" x="2496" y="1472"/>
+  <object id="79" template="../sprites/wall.tx" x="2496" y="1536"/>
+  <object id="80" template="../sprites/wall.tx" x="2496" y="1600"/>
+  <object id="81" template="../sprites/wall.tx" x="2496" y="1664"/>
+  <object id="82" template="../sprites/wall.tx" x="2496" y="1728"/>
+  <object id="83" template="../sprites/wall.tx" x="2496" y="1792"/>
+  <object id="84" template="../sprites/wall.tx" x="2496" y="1856"/>
+  <object id="87" template="../sprites/wall.tx" x="576" y="1856"/>
+  <object id="88" template="../sprites/wall.tx" x="640" y="1856"/>
+  <object id="89" template="../sprites/wall.tx" x="704" y="1856"/>
+  <object id="90" template="../sprites/wall.tx" x="768" y="1856"/>
+  <object id="91" template="../sprites/wall.tx" x="832" y="1856"/>
+  <object id="92" template="../sprites/wall.tx" x="896" y="1856"/>
+  <object id="93" template="../sprites/wall.tx" x="960" y="1856"/>
+  <object id="94" template="../sprites/wall.tx" x="1024" y="1856"/>
+  <object id="95" template="../sprites/wall.tx" x="1088" y="1856"/>
+  <object id="96" template="../sprites/wall.tx" x="1152" y="1856"/>
+  <object id="97" template="../sprites/wall.tx" x="1216" y="1856"/>
+  <object id="98" template="../sprites/wall.tx" x="1280" y="1856"/>
+  <object id="99" template="../sprites/wall.tx" x="1344" y="1856"/>
+  <object id="100" template="../sprites/wall.tx" x="1408" y="1856"/>
+  <object id="101" template="../sprites/wall.tx" x="1472" y="1856"/>
+  <object id="102" template="../sprites/wall.tx" x="1536" y="1856"/>
+  <object id="103" template="../sprites/wall.tx" x="1600" y="1856"/>
+  <object id="104" template="../sprites/wall.tx" x="1664" y="1856"/>
+  <object id="105" template="../sprites/wall.tx" x="1728" y="1856"/>
+  <object id="106" template="../sprites/wall.tx" x="1792" y="1856"/>
+  <object id="107" template="../sprites/wall.tx" x="1856" y="1856"/>
+  <object id="108" template="../sprites/wall.tx" x="1920" y="1856"/>
+  <object id="109" template="../sprites/wall.tx" x="1984" y="1856"/>
+  <object id="110" template="../sprites/wall.tx" x="2048" y="1856"/>
+  <object id="111" template="../sprites/wall.tx" x="2112" y="1856"/>
+  <object id="112" template="../sprites/wall.tx" x="2176" y="1856"/>
+  <object id="113" template="../sprites/wall.tx" x="2240" y="1856"/>
+  <object id="114" template="../sprites/wall.tx" x="2304" y="1856"/>
+  <object id="115" template="../sprites/wall.tx" x="2368" y="1856"/>
+  <object id="116" template="../sprites/wall.tx" x="2432" y="1856"/>
+  <object id="120" template="../sprites/wall.tx" x="128" y="1856"/>
+  <object id="121" template="../sprites/wall.tx" x="192" y="1856"/>
+  <object id="122" template="../sprites/wall.tx" x="256" y="1856"/>
+  <object id="123" template="../sprites/wall.tx" x="320" y="1856"/>
+  <object id="124" template="../sprites/wall.tx" x="384" y="1856"/>
+  <object id="125" template="../sprites/wall.tx" x="448" y="1856"/>
+  <object id="126" template="../sprites/wall.tx" x="512" y="1856"/>
+  <object id="129" template="../sprites/wall.tx" x="0" y="384"/>
+  <object id="130" template="../sprites/wall.tx" x="0" y="448"/>
+  <object id="131" template="../sprites/wall.tx" x="0" y="512"/>
+  <object id="132" template="../sprites/wall.tx" x="0" y="576"/>
+  <object id="133" template="../sprites/wall.tx" x="0" y="640"/>
+  <object id="134" template="../sprites/wall.tx" x="0" y="704"/>
+  <object id="135" template="../sprites/wall.tx" x="0" y="768"/>
+  <object id="136" template="../sprites/wall.tx" x="0" y="832"/>
+  <object id="137" template="../sprites/wall.tx" x="0" y="896"/>
+  <object id="138" template="../sprites/wall.tx" x="0" y="960"/>
+  <object id="139" template="../sprites/wall.tx" x="0" y="1024"/>
+  <object id="140" template="../sprites/wall.tx" x="0" y="1088"/>
+  <object id="141" template="../sprites/wall.tx" x="0" y="1152"/>
+  <object id="142" template="../sprites/wall.tx" x="0" y="1216"/>
+  <object id="143" template="../sprites/wall.tx" x="0" y="1280"/>
+  <object id="144" template="../sprites/wall.tx" x="0" y="1344"/>
+  <object id="145" template="../sprites/wall.tx" x="0" y="1408"/>
+  <object id="146" template="../sprites/wall.tx" x="0" y="1472"/>
+  <object id="147" template="../sprites/wall.tx" x="0" y="1536"/>
+  <object id="148" template="../sprites/wall.tx" x="0" y="1600"/>
+  <object id="149" template="../sprites/wall.tx" x="0" y="1664"/>
+  <object id="150" template="../sprites/wall.tx" x="0" y="1728"/>
+  <object id="151" template="../sprites/wall.tx" x="0" y="1792"/>
+  <object id="152" template="../sprites/wall.tx" x="128" y="256"/>
+  <object id="153" template="../sprites/wall.tx" x="128" y="192"/>
+  <object id="154" template="../sprites/wall.tx" x="192" y="192"/>
+  <object id="155" template="../sprites/wall.tx" x="256" y="192"/>
+  <object id="156" template="../sprites/wall.tx" x="256" y="128"/>
+  <object id="157" template="../sprites/wall.tx" x="256" y="64"/>
+  <object id="158" template="../sprites/wall.tx" x="192" y="256"/>
+  <object id="159" template="../sprites/wall.tx" x="256" y="256"/>
+  <object id="160" template="../sprites/wall.tx" x="384" y="256"/>
+  <object id="161" template="../sprites/wall.tx" x="320" y="256"/>
+  <object id="162" template="../sprites/wall.tx" x="448" y="256"/>
+  <object id="163" template="../sprites/wall.tx" x="576" y="256"/>
+  <object id="164" template="../sprites/wall.tx" x="512" y="256"/>
+  <object id="165" template="../sprites/wall.tx" x="576" y="192"/>
+  <object id="166" template="../sprites/wall.tx" x="448" y="64"/>
+  <object id="167" template="../sprites/wall.tx" x="448" y="128"/>
+  <object id="168" template="../sprites/wall.tx" x="64" y="384"/>
+  <object id="169" template="../sprites/wall.tx" x="128" y="384"/>
+  <object id="170" template="../sprites/wall.tx" x="256" y="512"/>
+  <object id="171" template="../sprites/wall.tx" x="128" y="512"/>
+  <object id="172" template="../sprites/wall.tx" x="192" y="512"/>
+  <object id="173" template="../sprites/wall.tx" x="256" y="448"/>
+  <object id="174" template="../sprites/wall.tx" x="256" y="384"/>
+  <object id="175" template="../sprites/wall.tx" x="384" y="384"/>
+  <object id="176" template="../sprites/wall.tx" x="384" y="448"/>
+  <object id="177" template="../sprites/wall.tx" x="384" y="512"/>
+  <object id="178" template="../sprites/wall.tx" x="384" y="576"/>
+  <object id="179" template="../sprites/wall.tx" x="384" y="640"/>
+  <object id="180" template="../sprites/wall.tx" x="256" y="640"/>
+  <object id="181" template="../sprites/wall.tx" x="320" y="640"/>
+  <object id="182" template="../sprites/wall.tx" x="192" y="576"/>
+  <object id="183" template="../sprites/wall.tx" x="704" y="64"/>
+  <object id="184" template="../sprites/wall.tx" x="704" y="128"/>
+  <object id="185" template="../sprites/wall.tx" x="704" y="192"/>
+  <object id="186" template="../sprites/wall.tx" x="704" y="256"/>
+  <object id="187" template="../sprites/wall.tx" x="704" y="320"/>
+  <object id="188" template="../sprites/wall.tx" x="704" y="384"/>
+  <object id="189" template="../sprites/wall.tx" x="704" y="448"/>
+  <object id="190" template="../sprites/wall.tx" x="640" y="448"/>
+  <object id="191" template="../sprites/wall.tx" x="576" y="448"/>
+  <object id="192" template="../sprites/wall.tx" x="512" y="448"/>
+  <object id="193" template="../sprites/wall.tx" x="512" y="512"/>
+  <object id="194" template="../sprites/wall.tx" x="512" y="576"/>
+  <object id="195" template="../sprites/wall.tx" x="448" y="704"/>
+  <object id="196" template="../sprites/wall.tx" x="512" y="704"/>
+  <object id="197" template="../sprites/wall.tx" x="576" y="704"/>
+  <object id="198" template="../sprites/wall.tx" x="640" y="704"/>
+  <object id="199" template="../sprites/wall.tx" x="384" y="768"/>
+  <object id="200" template="../sprites/wall.tx" x="320" y="768"/>
+  <object id="201" template="../sprites/wall.tx" x="256" y="768"/>
+  <object id="202" template="../sprites/wall.tx" x="192" y="768"/>
+  <object id="203" template="../sprites/wall.tx" x="128" y="704"/>
+  <object id="205" template="../sprites/wall.tx" x="640" y="640"/>
+  <object id="206" template="../sprites/wall.tx" x="640" y="576"/>
+  <object id="207" template="../sprites/wall.tx" x="768" y="576"/>
+  <object id="208" template="../sprites/wall.tx" x="832" y="576"/>
+  <object id="209" template="../sprites/wall.tx" x="896" y="576"/>
+  <object id="210" template="../sprites/wall.tx" x="960" y="576"/>
+  <object id="211" template="../sprites/wall.tx" x="960" y="512"/>
+  <object id="212" template="../sprites/wall.tx" x="960" y="448"/>
+  <object id="213" template="../sprites/wall.tx" x="960" y="384"/>
+  <object id="214" template="../sprites/wall.tx" x="960" y="320"/>
+  <object id="215" template="../sprites/wall.tx" x="960" y="256"/>
+  <object id="216" template="../sprites/wall.tx" x="960" y="192"/>
+  <object id="217" template="../sprites/wall.tx" x="960" y="128"/>
+  <object id="218" template="../sprites/wall.tx" x="960" y="64"/>
+  <object id="219" template="../sprites/wall.tx" x="64" y="1728"/>
+  <object id="220" template="../sprites/wall.tx" x="128" y="1728"/>
+  <object id="221" template="../sprites/wall.tx" x="192" y="1728"/>
+  <object id="222" template="../sprites/wall.tx" x="256" y="1728"/>
+  <object id="223" template="../sprites/wall.tx" x="320" y="1728"/>
+  <object id="224" template="../sprites/wall.tx" x="384" y="1728"/>
+  <object id="225" template="../sprites/wall.tx" x="448" y="1728"/>
+  <object id="226" template="../sprites/wall.tx" x="512" y="1728"/>
+  <object id="227" template="../sprites/wall.tx" x="576" y="1664"/>
+  <object id="228" template="../sprites/wall.tx" x="576" y="1600"/>
+  <object id="229" template="../sprites/wall.tx" x="512" y="1536"/>
+  <object id="230" template="../sprites/wall.tx" x="640" y="1792"/>
+  <object id="231" template="../sprites/wall.tx" x="704" y="1792"/>
+  <object id="232" template="../sprites/wall.tx" x="704" y="1728"/>
+  <object id="233" template="../sprites/wall.tx" x="704" y="1664"/>
+  <object id="234" template="../sprites/wall.tx" x="704" y="1600"/>
+  <object id="235" template="../sprites/wall.tx" x="704" y="1536"/>
+  <object id="236" template="../sprites/wall.tx" x="640" y="1408"/>
+  <object id="237" template="../sprites/wall.tx" x="704" y="1472"/>
+  <object id="238" template="../sprites/wall.tx" x="576" y="1344"/>
+  <object id="239" template="../sprites/wall.tx" x="512" y="1280"/>
+  <object id="240" template="../sprites/wall.tx" x="448" y="1472"/>
+  <object id="241" template="../sprites/wall.tx" x="384" y="1408"/>
+  <object id="242" template="../sprites/wall.tx" x="320" y="1344"/>
+  <object id="243" template="../sprites/wall.tx" x="320" y="1280"/>
+  <object id="244" template="../sprites/wall.tx" x="320" y="1216"/>
+  <object id="245" template="../sprites/wall.tx" x="320" y="1152"/>
+  <object id="246" template="../sprites/wall.tx" x="384" y="1152"/>
+  <object id="247" template="../sprites/wall.tx" x="448" y="1152"/>
+  <object id="248" template="../sprites/wall.tx" x="512" y="1152"/>
+  <object id="249" template="../sprites/wall.tx" x="192" y="1216"/>
+  <object id="250" template="../sprites/wall.tx" x="192" y="1280"/>
+  <object id="251" template="../sprites/wall.tx" x="192" y="1344"/>
+  <object id="252" template="../sprites/wall.tx" x="192" y="1408"/>
+  <object id="253" template="../sprites/wall.tx" x="192" y="1472"/>
+  <object id="254" template="../sprites/wall.tx" x="192" y="1536"/>
+  <object id="255" template="../sprites/wall.tx" x="64" y="1408"/>
+  <object id="256" template="../sprites/wall.tx" x="128" y="1280"/>
+  <object id="257" template="../sprites/wall.tx" x="128" y="1536"/>
+  <object id="258" template="../sprites/wall.tx" x="320" y="1536"/>
+  <object id="259" template="../sprites/wall.tx" x="320" y="1600"/>
+  <object id="260" template="../sprites/wall.tx" x="384" y="1600"/>
+  <object id="261" template="../sprites/wall.tx" x="576" y="1152"/>
+  <object id="262" template="../sprites/wall.tx" x="640" y="1152"/>
+  <object id="263" template="../sprites/wall.tx" x="704" y="1152"/>
+  <object id="264" template="../sprites/wall.tx" x="640" y="1216"/>
+  <object id="265" template="../sprites/wall.tx" x="704" y="1280"/>
+  <object id="266" template="../sprites/wall.tx" x="768" y="1152"/>
+  <object id="267" template="../sprites/wall.tx" x="832" y="1152"/>
+  <object id="268" template="../sprites/wall.tx" x="832" y="1216"/>
+  <object id="269" template="../sprites/wall.tx" x="832" y="1280"/>
+  <object id="270" template="../sprites/wall.tx" x="832" y="1344"/>
+  <object id="271" template="../sprites/wall.tx" x="832" y="1408"/>
+  <object id="272" template="../sprites/wall.tx" x="832" y="1472"/>
+  <object id="273" template="../sprites/wall.tx" x="832" y="1600"/>
+  <object id="274" template="../sprites/wall.tx" x="832" y="1664"/>
+  <object id="275" template="../sprites/wall.tx" x="896" y="1664"/>
+  <object id="276" template="../sprites/wall.tx" x="960" y="1664"/>
+  <object id="277" template="../sprites/wall.tx" x="1088" y="1664"/>
+  <object id="278" template="../sprites/wall.tx" x="1024" y="1664"/>
+  <object id="279" template="../sprites/wall.tx" x="1152" y="1664"/>
+  <object id="280" template="../sprites/wall.tx" x="1216" y="1664"/>
+  <object id="281" template="../sprites/wall.tx" x="1280" y="1664"/>
+  <object id="282" template="../sprites/wall.tx" x="1344" y="1664"/>
+  <object id="283" template="../sprites/wall.tx" x="1408" y="1664"/>
+  <object id="284" template="../sprites/wall.tx" x="1472" y="1664"/>
+  <object id="285" template="../sprites/wall.tx" x="1536" y="1664"/>
+  <object id="286" template="../sprites/wall.tx" x="1280" y="1600"/>
+  <object id="287" template="../sprites/wall.tx" x="1280" y="1472"/>
+  <object id="288" template="../sprites/wall.tx" x="1280" y="1536"/>
+  <object id="289" template="../sprites/wall.tx" x="1280" y="1408"/>
+  <object id="290" template="../sprites/wall.tx" x="1280" y="1280"/>
+  <object id="291" template="../sprites/wall.tx" x="1280" y="1344"/>
+  <object id="292" template="../sprites/wall.tx" x="1280" y="1216"/>
+  <object id="293" template="../sprites/wall.tx" x="1280" y="1152"/>
+  <object id="294" template="../sprites/wall.tx" x="1280" y="1088"/>
+  <object id="295" template="../sprites/wall.tx" x="1280" y="960"/>
+  <object id="296" template="../sprites/wall.tx" x="1280" y="896"/>
+  <object id="297" template="../sprites/wall.tx" x="1280" y="1024"/>
+  <object id="298" template="../sprites/wall.tx" x="704" y="704"/>
+  <object id="299" template="../sprites/wall.tx" x="768" y="704"/>
+  <object id="300" template="../sprites/wall.tx" x="832" y="704"/>
+  <object id="301" template="../sprites/wall.tx" x="896" y="704"/>
+  <object id="302" template="../sprites/wall.tx" x="960" y="704"/>
+  <object id="303" template="../sprites/wall.tx" x="1024" y="704"/>
+  <object id="304" template="../sprites/wall.tx" x="1088" y="704"/>
+  <object id="305" template="../sprites/wall.tx" x="1152" y="704"/>
+  <object id="306" template="../sprites/wall.tx" x="1216" y="704"/>
+  <object id="307" template="../sprites/wall.tx" x="1408" y="704"/>
+  <object id="308" template="../sprites/wall.tx" x="1344" y="704"/>
+  <object id="309" template="../sprites/wall.tx" x="1344" y="768"/>
+  <object id="310" template="../sprites/wall.tx" x="1344" y="640"/>
+  <object id="311" template="../sprites/wall.tx" x="1344" y="576"/>
+  <object id="312" template="../sprites/wall.tx" x="1280" y="576"/>
+  <object id="313" template="../sprites/wall.tx" x="1216" y="576"/>
+  <object id="314" template="../sprites/wall.tx" x="1280" y="832"/>
+  <object id="315" template="../sprites/wall.tx" x="1216" y="832"/>
+  <object id="316" template="../sprites/wall.tx" x="1152" y="832"/>
+  <object id="317" template="../sprites/wall.tx" x="1088" y="832"/>
+  <object id="318" template="../sprites/wall.tx" x="1024" y="832"/>
+  <object id="319" template="../sprites/wall.tx" x="960" y="832"/>
+  <object id="320" template="../sprites/wall.tx" x="896" y="832"/>
+  <object id="321" template="../sprites/wall.tx" x="832" y="832"/>
+  <object id="322" template="../sprites/wall.tx" x="704" y="832"/>
+  <object id="324" template="../sprites/wall.tx" x="768" y="832"/>
+  <object id="325" template="../sprites/wall.tx" x="640" y="832"/>
+  <object id="326" template="../sprites/wall.tx" x="576" y="832"/>
+  <object id="327" template="../sprites/wall.tx" x="512" y="832"/>
+  <object id="331" template="../sprites/wall.tx" x="448" y="960"/>
+  <object id="332" template="../sprites/wall.tx" x="512" y="960"/>
+  <object id="333" template="../sprites/wall.tx" x="576" y="960"/>
+  <object id="334" template="../sprites/wall.tx" x="640" y="960"/>
+  <object id="335" template="../sprites/wall.tx" x="704" y="960"/>
+  <object id="336" template="../sprites/wall.tx" x="768" y="960"/>
+  <object id="337" template="../sprites/wall.tx" x="832" y="960"/>
+  <object id="338" template="../sprites/wall.tx" x="896" y="960"/>
+  <object id="339" template="../sprites/wall.tx" x="960" y="960"/>
+  <object id="340" template="../sprites/wall.tx" x="960" y="1024"/>
+  <object id="341" template="../sprites/wall.tx" x="960" y="1088"/>
+  <object id="342" template="../sprites/wall.tx" x="960" y="1152"/>
+  <object id="343" template="../sprites/wall.tx" x="960" y="1216"/>
+  <object id="344" template="../sprites/wall.tx" x="960" y="1280"/>
+  <object id="345" template="../sprites/wall.tx" x="960" y="1344"/>
+  <object id="346" template="../sprites/wall.tx" x="960" y="1408"/>
+  <object id="347" template="../sprites/wall.tx" x="960" y="1472"/>
+  <object id="348" template="../sprites/wall.tx" x="960" y="1536"/>
+  <object id="349" template="../sprites/wall.tx" x="1024" y="960"/>
+  <object id="350" template="../sprites/wall.tx" x="1088" y="960"/>
+  <object id="351" template="../sprites/wall.tx" x="1152" y="1088"/>
+  <object id="352" template="../sprites/wall.tx" x="1216" y="1088"/>
+  <object id="353" template="../sprites/wall.tx" x="1088" y="1088"/>
+  <object id="354" template="../sprites/wall.tx" x="1152" y="960"/>
+  <object id="355" template="../sprites/wall.tx" x="1024" y="1216"/>
+  <object id="356" template="../sprites/wall.tx" x="1088" y="1216"/>
+  <object id="357" template="../sprites/wall.tx" x="1152" y="1344"/>
+  <object id="358" template="../sprites/wall.tx" x="1216" y="1344"/>
+  <object id="359" template="../sprites/wall.tx" x="1024" y="1472"/>
+  <object id="360" template="../sprites/wall.tx" x="1216" y="1536"/>
+  <object id="361" template="../sprites/wall.tx" x="128" y="1088"/>
+  <object id="362" template="../sprites/wall.tx" x="192" y="1088"/>
+  <object id="363" template="../sprites/wall.tx" x="256" y="1024"/>
+  <object id="364" template="../sprites/wall.tx" x="320" y="960"/>
+  <object id="365" template="../sprites/wall.tx" x="320" y="896"/>
+  <object id="366" template="../sprites/wall.tx" x="128" y="960"/>
+  <object id="367" template="../sprites/wall.tx" x="192" y="896"/>
+  <object id="368" template="../sprites/wall.tx" x="448" y="1024"/>
+  <object id="369" template="../sprites/wall.tx" x="448" y="1088"/>
+  <object id="370" template="../sprites/wall.tx" x="1088" y="576"/>
+  <object id="371" template="../sprites/wall.tx" x="1088" y="512"/>
+  <object id="372" template="../sprites/wall.tx" x="1088" y="448"/>
+  <object id="374" template="../sprites/wall.tx" x="1088" y="384"/>
+  <object id="375" template="../sprites/wall.tx" x="1088" y="256"/>
+  <object id="376" template="../sprites/wall.tx" x="1088" y="320"/>
+  <object id="377" template="../sprites/wall.tx" x="1088" y="192"/>
+  <object id="378" template="../sprites/wall.tx" x="1088" y="128"/>
+  <object id="379" template="../sprites/wall.tx" x="1152" y="128"/>
+  <object id="380" template="../sprites/wall.tx" x="1216" y="128"/>
+  <object id="381" template="../sprites/wall.tx" x="1280" y="128"/>
+  <object id="382" template="../sprites/wall.tx" x="1344" y="128"/>
+  <object id="383" template="../sprites/wall.tx" x="1408" y="128"/>
+  <object id="384" template="../sprites/wall.tx" x="1472" y="128"/>
+  <object id="385" template="../sprites/wall.tx" x="1536" y="128"/>
+  <object id="386" template="../sprites/wall.tx" x="1600" y="128"/>
+  <object id="387" template="../sprites/wall.tx" x="1664" y="128"/>
+  <object id="388" template="../sprites/wall.tx" x="1728" y="128"/>
+  <object id="389" template="../sprites/wall.tx" x="1792" y="128"/>
+  <object id="390" template="../sprites/wall.tx" x="1856" y="128"/>
+  <object id="391" template="../sprites/wall.tx" x="1920" y="128"/>
+  <object id="392" template="../sprites/wall.tx" x="1984" y="128"/>
+  <object id="393" template="../sprites/wall.tx" x="2048" y="128"/>
+  <object id="394" template="../sprites/wall.tx" x="2112" y="128"/>
+  <object id="395" template="../sprites/wall.tx" x="2176" y="128"/>
+  <object id="396" template="../sprites/wall.tx" x="2240" y="128"/>
+  <object id="397" template="../sprites/wall.tx" x="2304" y="128"/>
+  <object id="398" template="../sprites/wall.tx" x="2368" y="128"/>
+  <object id="399" template="../sprites/wall.tx" x="2368" y="192"/>
+  <object id="400" template="../sprites/wall.tx" x="2368" y="256"/>
+  <object id="401" template="../sprites/wall.tx" x="2368" y="320"/>
+  <object id="402" template="../sprites/wall.tx" x="2368" y="384"/>
+  <object id="403" template="../sprites/wall.tx" x="2368" y="448"/>
+  <object id="404" template="../sprites/wall.tx" x="2368" y="512"/>
+  <object id="405" template="../sprites/wall.tx" x="2368" y="576"/>
+  <object id="406" template="../sprites/wall.tx" x="2368" y="640"/>
+  <object id="407" template="../sprites/wall.tx" x="2368" y="704"/>
+  <object id="418" template="../sprites/wall.tx" x="2368" y="768"/>
+  <object id="419" template="../sprites/wall.tx" x="2368" y="832"/>
+  <object id="420" template="../sprites/wall.tx" x="2368" y="896"/>
+  <object id="421" template="../sprites/wall.tx" x="2368" y="960"/>
+  <object id="422" template="../sprites/wall.tx" x="2368" y="1024"/>
+  <object id="423" template="../sprites/wall.tx" x="2368" y="1088"/>
+  <object id="424" template="../sprites/wall.tx" x="2368" y="1152"/>
+  <object id="425" template="../sprites/wall.tx" x="2368" y="1216"/>
+  <object id="426" template="../sprites/wall.tx" x="2368" y="1280"/>
+  <object id="427" template="../sprites/wall.tx" x="2368" y="1344"/>
+  <object id="428" template="../sprites/wall.tx" x="2368" y="1408"/>
+  <object id="429" template="../sprites/wall.tx" x="2368" y="1472"/>
+  <object id="430" template="../sprites/wall.tx" x="2368" y="1536"/>
+  <object id="431" template="../sprites/wall.tx" x="2368" y="1600"/>
+  <object id="432" template="../sprites/wall.tx" x="2368" y="1664"/>
+  <object id="433" template="../sprites/wall.tx" x="2368" y="1728"/>
+  <object id="434" template="../sprites/wall.tx" x="2304" y="1728"/>
+  <object id="435" template="../sprites/wall.tx" x="2240" y="1728"/>
+  <object id="436" template="../sprites/wall.tx" x="2176" y="1728"/>
+  <object id="437" template="../sprites/wall.tx" x="2112" y="1728"/>
+  <object id="438" template="../sprites/wall.tx" x="2048" y="1728"/>
+  <object id="439" template="../sprites/wall.tx" x="1984" y="1728"/>
+  <object id="440" template="../sprites/wall.tx" x="1920" y="1728"/>
+  <object id="441" template="../sprites/wall.tx" x="1856" y="1728"/>
+  <object id="442" template="../sprites/wall.tx" x="1792" y="1728"/>
+  <object id="443" template="../sprites/wall.tx" x="1728" y="1728"/>
+  <object id="444" template="../sprites/wall.tx" x="1664" y="1728"/>
+  <object id="445" template="../sprites/wall.tx" x="1536" y="1728"/>
+  <object id="446" template="../sprites/spawn.tx" x="64" y="64">
    <properties>
-    <property name="VALUE" type="float" value="0.5"/>
+    <property name="VALUE" type="float" value="8192"/>
    </properties>
   </object>
-  <object id="3" template="../sprites/Wall.tx" x="1344" y="1536"/>
-  <object id="4" template="../sprites/Wall.tx" x="1344" y="1600"/>
-  <object id="5" template="../sprites/Wall.tx" x="1344" y="1664"/>
-  <object id="6" template="../sprites/Wall.tx" x="1408" y="1664"/>
-  <object id="7" template="../sprites/Wall.tx" x="1472" y="1664"/>
-  <object id="8" template="../sprites/Wall.tx" x="1536" y="1600"/>
-  <object id="9" template="../sprites/Wall.tx" x="1536" y="1536"/>
-  <object id="10" template="../sprites/Wall.tx" x="1600" y="1472"/>
-  <object id="11" template="../sprites/Wall.tx" x="1536" y="1408"/>
-  <object id="12" template="../sprites/Wall.tx" x="1472" y="1408"/>
-  <object id="13" template="../sprites/Wall.tx" x="1408" y="1344"/>
-  <object id="14" template="../sprites/Wall.tx" x="1344" y="1280"/>
-  <object id="15" template="../sprites/Wall.tx" x="1280" y="1472"/>
-  <object id="16" template="../sprites/Wall.tx" x="1216" y="1408"/>
-  <object id="17" template="../sprites/Wall.tx" x="1152" y="1344"/>
-  <object id="18" template="../sprites/Wall.tx" x="1280" y="1216"/>
-  <object id="19" template="../sprites/Wall.tx" x="1152" y="1280"/>
-  <object id="20" template="../sprites/Wall.tx" x="1152" y="1216"/>
-  <object id="21" template="../sprites/Wall.tx" x="1216" y="1088"/>
-  <object id="22" template="../sprites/Wall.tx" x="1152" y="1152"/>
-  <object id="23" template="../sprites/Wall.tx" type="wall" x="1280" y="1152"/>
-  <object id="29" template="../sprites/Wall.tx" x="1216" y="1472"/>
+  <object id="447" template="../sprites/portal.tx" x="0" y="1856"/>
+  <object id="448" template="../sprites/enemy.tx" x="64" y="256">
+   <properties>
+    <property name="VALUE" type="float" value="-8191"/>
+   </properties>
+  </object>
+  <object id="449" template="../sprites/enemy.tx" x="64" y="576"/>
+  <object id="450" template="../sprites/enemy.tx" x="448" y="512">
+   <properties>
+    <property name="VALUE" type="float" value="5"/>
+   </properties>
+  </object>
+  <object id="451" template="../sprites/enemy.tx" x="320" y="128">
+   <properties>
+    <property name="VALUE" type="float" value="1024"/>
+   </properties>
+  </object>
+  <object id="452" template="../sprites/enemy.tx" x="192" y="64">
+   <properties>
+    <property name="VALUE" type="float" value="1048576"/>
+   </properties>
+  </object>
+  <object id="453" template="../sprites/enemy.tx" x="192" y="128">
+   <properties>
+    <property name="VALUE" type="float" value="1048576"/>
+   </properties>
+  </object>
+  <object id="454" template="../sprites/enemy.tx" x="704" y="512">
+   <properties>
+    <property name="VALUE" type="float" value="2"/>
+   </properties>
+  </object>
+  <object id="455" template="../sprites/enemy.tx" x="832" y="128">
+   <properties>
+    <property name="VALUE" type="float" value="3"/>
+   </properties>
+  </object>
+  <object id="456" template="../sprites/enemy.tx" x="1728" y="832">
+   <properties>
+    <property name="VALUE" type="float" value="10"/>
+   </properties>
+  </object>
+  <object id="457" template="../sprites/enemy.tx" x="1088" y="1280"/>
+  <object id="458" template="../sprites/enemy.tx" x="384" y="896">
+   <properties>
+    <property name="VALUE" type="float" value="2.0001"/>
+   </properties>
+  </object>
+  <object id="459" template="../sprites/enemy.tx" x="192" y="960"/>
+  <object id="460" template="../sprites/enemy.tx" x="64" y="1856">
+   <properties>
+    <property name="VALUE" type="float" value="1e-09"/>
+   </properties>
+  </object>
+  <object id="461" template="../sprites/enemy.tx" x="640" y="1664">
+   <properties>
+    <property name="VALUE" type="float" value="12"/>
+   </properties>
+  </object>
+  <object id="462" template="../sprites/enemy.tx" x="1536" y="1792">
+   <properties>
+    <property name="VALUE" type="float" value="8"/>
+   </properties>
+  </object>
+  <object id="463" template="../sprites/enemy.tx" x="768" y="768"/>
  </objectgroup>
 </map>

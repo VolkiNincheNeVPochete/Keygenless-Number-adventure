@@ -7,9 +7,9 @@ import com.badlogic.gdx.Screen;
 import java.util.ArrayList;
 
 public class ScreenManager {
+    public static ArrayList<Screen> screenStack = new ArrayList<>();
     private static Game myGame;
     private static Screen createdScreen;
-    public static ArrayList<Screen> screenStack = new ArrayList<>();
 
     public ScreenManager(Game myGame) {
         ScreenManager.myGame = myGame;
@@ -72,7 +72,7 @@ public class ScreenManager {
 
     public static void ShowLevelCompleteScreen(float value) {
         screenStack.clear();
-        createdScreen = new LevelCompleteScreen();
+        createdScreen = new LevelCompleteScreen(value);
         screenStack.add(createdScreen);
         myGame.setScreen(createdScreen);
     }

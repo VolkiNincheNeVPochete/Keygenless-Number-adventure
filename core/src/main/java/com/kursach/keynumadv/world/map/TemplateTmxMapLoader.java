@@ -10,11 +10,13 @@ import com.badlogic.gdx.utils.XmlReader;
 
 public class TemplateTmxMapLoader extends TmxMapLoader {
     FileHandle tmxFile;
+
     @Override
     protected TiledMap loadTiledMap(FileHandle tmxFile, TmxMapLoader.Parameters parameter, ImageResolver imageResolver) {
         this.tmxFile = tmxFile;
         return super.loadTiledMap(tmxFile, parameter, imageResolver);
     }
+
     @Override
     protected void loadObject(TiledMap map, MapObjects objects, XmlReader.Element element, float heightInPixels) {
         if (!element.getName().equals("object")) {

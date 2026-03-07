@@ -2,59 +2,98 @@ package com.kursach.keynumadv.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class LevelCompleteScreen extends BaseScreen {
-    private final TextButton toMainMenuButton = new TextButton("To main menu", skin);
-    public LevelCompleteScreen() {
+    private final float playerValue;
+    private final TextButton nextLevelButton = new TextButton("Next Level", skin);
+    private final TextButton restartButton = new TextButton("Restart", skin);
+    private final TextButton menuButton = new TextButton("Main Menu", skin);
+    private Label scoreLabel;
+    private Label valueLabel;
+
+    public LevelCompleteScreen(float playerValue) {
         super();
-    }
-    public LevelCompleteScreen(Game myGame) {
-        super(myGame);
+        this.playerValue = playerValue;
     }
 
+    public LevelCompleteScreen(Game myGame, float playerValue) {
+        super(myGame);
+        this.playerValue = playerValue;
+    }
     @Override
     public void show() {
         if (stage == null) {
             stage = new Stage();
 
+            Label.LabelStyle titleStyle = new Label.LabelStyle();
+            titleStyle.font = new BitmapFont();
+            titleStyle.fontColor = Color.GREEN;
+            scoreLabel = new Label("Level Complete!", titleStyle);
+            scoreLabel.setFontScale(3, 3);
+
+            Label.LabelStyle valueStyle = new Label.LabelStyle();
+            valueStyle.font = new BitmapFont();
+            valueStyle.fontColor = Color.BLACK;
+            valueLabel = new Label("Your Score: " + (int)playerValue, valueStyle);
+            valueLabel.setFontScale(2, 2);
+
             table.setFillParent(true);
             table.center().pad(20);
 
-            table.add(toMainMenuButton).size(200, 50).pad(10).row();
+            table.add(scoreLabel).pad(20).row();
+            table.add(valueLabel).pad(20).row();
+            table.add(nextLevelButton).size(200, 50).pad(10).row();
+            table.add(restartButton).size(200, 50).pad(10).row();
+            table.add(menuButton).size(200, 50).pad(10);
 
-            toMainMenuButton.setPosition(100f, 700f);
+            stage.addActor(table);
 
-            stage.addActor(toMainMenuButton);
+            nextLevelButton.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    ScreenManager.ShowLevelSelectScreen(); // Или логика следующего уровня
+                }
+            });
 
-            toMainMenuButton.addListener(new ClickListener() {
+            restartButton.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    ScreenManager.ShowGame();
+                }
+            });
+
+            menuButton.addListener(new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
                     ScreenManager.ShowMainMenu();
                 }
             });
         }
-
         Gdx.input.setInputProcessor(stage);
     }
 
+
+
     @Override
     public void render(float delta) {
-
-        Gdx.gl.glClearColor(1f, 1f, 1f, 1);
+        Gdx.gl.glClearColor(0, 0.5f, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        stage.draw();
         stage.act(delta);
+        stage.draw();
     }
+
 
     @Override
     public void resize(int width, int height) {
-
+        stage.getViewport().update(width, height, true);
     }
 
     @Override
@@ -69,11 +108,11 @@ public class LevelCompleteScreen extends BaseScreen {
 
     @Override
     public void hide() {
-
+        Gdx.input.setInputProcessor(null);
     }
 
     @Override
     public void dispose() {
-        stage.dispose();
+        if (stage != null) stage.dispose();
     }
 }

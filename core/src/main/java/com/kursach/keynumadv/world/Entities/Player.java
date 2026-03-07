@@ -16,34 +16,32 @@ import java.util.ArrayList;
 import static com.kursach.keynumadv.world.LocalRender.TileToPixel;
 
 public class Player {
-    private GridPoint2 tilePos;
-    private Vector2 pixelPos;
-    private final int OFFSET_X  = 64;
+    private static final float FRAME_DURATION = 0.15f;
+    private static final int[][] DIRECTIONS = {{0, 3, 0}, {4, 0, 2}, {0, 1, 0}};
+    private final int OFFSET_X = 64;
     private final int OFFSET_TX = 0;
     private final int OFFSET_Y = 96;
     private final int OFFSET_TY = -1;
-
+    private GridPoint2 tilePos;
+    private Vector2 pixelPos;
     private boolean isMoving = false;
     private float moveProgress = 0f;
     private GridPoint2 targetTile = null;
     private Vector2 startPixel;
     private Vector2 targetPixel;
-
     private BusyManager busyManager;
     private float VALUE;
-
     private BitmapFont playerFont;
     private Texture playerSheet;
     private TextureRegion[][] sprites;
     private int currentDirection = 0;
     private TextureRegion currentFrame;
     private float animTime = 0f;
-    private static final float FRAME_DURATION = 0.15f;
-    private static final int[][] DIRECTIONS = {{0, 3, 0}, {4, 0, 2}, {0, 1, 0}};
     private float spriteScale = 2.0f;
 
-    public Player(GridPoint2 spawnTile, BusyManager busyManager) {
+    public Player(GridPoint2 spawnTile, float spawnValue, BusyManager busyManager) {
         this.tilePos = spawnTile;
+        this.VALUE = spawnValue;
         this.pixelPos = TileToPixel(tilePos.x, tilePos.y);
         this.startPixel = new Vector2();
         this.targetPixel = new Vector2();
@@ -51,7 +49,6 @@ public class Player {
         this.busyManager.SetCurrentPlayer(this);
         this.playerFont = new BitmapFont(Gdx.files.internal("commodore64/raw/commodore-64.fnt"));
         this.playerFont.setColor(Color.BLACK);
-        this.VALUE = 1;
 
         playerSheet = new Texture(Gdx.files.internal("sprites/player/SpriteSheet.png"));
         playerSheet.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
@@ -64,11 +61,11 @@ public class Player {
         for (int col = 0; col < 9; col++) {
             sprites[0][col] = new TextureRegion(playerSheet, offsetX, offsetY, spriteWidth, spriteHeight);
         }
-        for (int row = 0; row < 4; row ++) {
+        for (int row = 0; row < 4; row++) {
             for (int col = 0; col < 9; col++) {
                 int x = offsetX + col * (spriteWidth);
                 int y = offsetY + (1 + row * 2) * (spriteHeight);
-                sprites[row+1][col] = new TextureRegion(playerSheet, x, y, spriteWidth, spriteHeight);
+                sprites[row + 1][col] = new TextureRegion(playerSheet, x, y, spriteWidth, spriteHeight);
             }
         }
 
@@ -96,8 +93,7 @@ public class Player {
                 pixelPos.x = startPixel.x + (targetPixel.x - startPixel.x) * moveProgress;
                 pixelPos.y = startPixel.y + (targetPixel.y - startPixel.y) * moveProgress;
             }
-        }
-        else {
+        } else {
             currentFrame = sprites[currentDirection][0]; // idle
             animTime = 0f;
         }
@@ -118,7 +114,7 @@ public class Player {
     public boolean tryMove(int dx, int dy, GameMap map) {
         if (isMoving || busyManager.IsActive()) return false;
 
-        currentDirection = DIRECTIONS[dx+1][dy+1];
+        currentDirection = DIRECTIONS[dx + 1][dy + 1];
 
         int newCol = tilePos.x + dx;
         int newRow = tilePos.y + dy;
@@ -153,21 +149,27 @@ public class Player {
         }
         return true;
     }
+
     public void updateValue(Float dValue) {
         VALUE += dValue;
     }
+
     public Vector2 getVisualPixelPosition() {
-        return new Vector2(pixelPos.x+OFFSET_X, pixelPos.y+OFFSET_Y);
+        return new Vector2(pixelPos.x + OFFSET_X, pixelPos.y + OFFSET_Y);
     }
+
     public GridPoint2 getVisualTilePosition() {
-        return new GridPoint2(tilePos.x+OFFSET_TX, tilePos.y+OFFSET_TY);
+        return new GridPoint2(tilePos.x + OFFSET_TX, tilePos.y + OFFSET_TY);
     }
+
     public Vector2 getPixelPosition() {
         return new Vector2(pixelPos.x, pixelPos.y);
     }
+
     public GridPoint2 getTilePosition() {
         return new GridPoint2(tilePos.x, tilePos.y);
     }
+
     public void render(SpriteBatch batch) {
         Vector2 visualPos = getVisualPixelPosition();
 

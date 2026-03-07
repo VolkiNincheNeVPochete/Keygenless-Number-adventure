@@ -7,17 +7,15 @@ import com.badlogic.gdx.math.GridPoint2;
 
 public class Wall extends Entity {
     static Texture texture = new Texture(Gdx.files.internal("sprites/wall.png"));
-    enum State {};
 
     public Wall() {
         super();
     }
+
+    ;
+
     public Wall(GridPoint2 tilePos) {
         super(tilePos);
-    }
-    @Override
-    public void render(Batch batch) {
-        batch.draw(this.texture, pixPos.x, pixPos.y);
     }
 
     public static void dispose() {
@@ -25,6 +23,11 @@ public class Wall extends Entity {
             texture.dispose();
             texture = null;
         }
+    }
+
+    @Override
+    public void render(Batch batch) {
+        batch.draw(this.texture, pixPos.x, pixPos.y);
     }
 
     @Override
@@ -49,4 +52,6 @@ public class Wall extends Entity {
     public boolean isFinalized() {
         return false;
     }
+
+    enum State {}
 }

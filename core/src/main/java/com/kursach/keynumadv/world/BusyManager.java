@@ -15,19 +15,21 @@ public class BusyManager {
         this.queue = new ArrayList<>();
     }
 
-    public void CreateQueue (ArrayList<Entity> entities) {
+    public void CreateQueue(ArrayList<Entity> entities) {
         if (entities != null) {
             queue = entities;
         }
 
     }
+
     public void Start() {
         if (!queue.isEmpty()) {
             isActive = true;
         }
     }
-    public void Update () {
-        if (queue.isEmpty()){
+
+    public void Update() {
+        if (queue.isEmpty()) {
             return;
         }
 
@@ -43,14 +45,17 @@ public class BusyManager {
             FinishEntity();
         }
     }
-    public void RealiseEntity () {
+
+    public void RealiseEntity() {
         GetCurrentEntity().onStep(currentPlayer);
         isRealize = true;
     }
-    public void FinishEntity () {
+
+    public void FinishEntity() {
         GetCurrentEntity().onFinish(currentPlayer);
     }
-    public void FinalizeEntity () {
+
+    public void FinalizeEntity() {
         GetCurrentEntity().Reward(currentPlayer);
         isRealize = false;
         queue.remove(0);
@@ -58,21 +63,27 @@ public class BusyManager {
             isActive = false;
         }
     }
+
     public boolean GetFinished() {
         return GetCurrentEntity().isFinished();
     }
+
     public boolean GetFinalized() {
         return GetCurrentEntity().isFinalized();
     }
+
     public Entity GetCurrentEntity() {
         return queue.get(0);
     }
+
     public boolean IsActive() {
         return isActive;
     }
+
     public boolean IsRealize() {
         return isRealize;
     }
+
     public void SetCurrentPlayer(Player player) {
         currentPlayer = player;
     }

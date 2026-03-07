@@ -41,7 +41,7 @@ public class GameOverScreen extends BaseScreen {
             Label.LabelStyle valueStyle = new Label.LabelStyle();
             valueStyle.font = new BitmapFont();
             valueStyle.fontColor = Color.BLACK;
-            Label valueLabel = new Label("Your Score: " + (int)playerValue, valueStyle);
+            Label valueLabel = new Label("Your Score: " + (int) playerValue, valueStyle);
             valueLabel.setFontScale(2, 2);
 
             table.setFillParent(true);

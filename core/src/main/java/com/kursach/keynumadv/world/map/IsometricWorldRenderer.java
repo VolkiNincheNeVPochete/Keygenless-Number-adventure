@@ -40,7 +40,7 @@ public class IsometricWorldRenderer {
         float halfW = camera.viewportWidth / 2;
 
         Vector2 tl = new Vector2(camX - halfW, camY - halfH);
-        Vector2 br = new Vector2(camX + halfW, camY + halfH );
+        Vector2 br = new Vector2(camX + halfW, camY + halfH);
 
         GridPoint2 topLeft = LocalRender.PixelToTile(tl);
         GridPoint2 bottomRight = LocalRender.PixelToTile(br);
@@ -59,7 +59,7 @@ public class IsometricWorldRenderer {
         int rCol;
         int rRow;
         for (int row = mapTHeight; row >= 0; row--) {
-            for (int cc = mapTHeight - row; cc >= 0; cc--){
+            for (int cc = mapTHeight - row; cc >= 0; cc--) {
 
                 rCol = cc;
                 rRow = row + cc;
@@ -69,7 +69,7 @@ public class IsometricWorldRenderer {
                 if (list != null) {
                     for (Entity e : list) {
                         e.render(batch);
-                        batch.setColor(1,1,1,1);
+                        batch.setColor(1, 1, 1, 1);
                     }
                 }
 
@@ -77,7 +77,7 @@ public class IsometricWorldRenderer {
             }
         }
         for (int col = 0; col <= mapTWidth; col++) {
-            for (int cc = mapTWidth - col; cc >= 0; cc--){
+            for (int cc = mapTWidth - col; cc >= 0; cc--) {
 
                 rCol = col + cc;
                 rRow = cc;
@@ -87,7 +87,7 @@ public class IsometricWorldRenderer {
                 if (list != null) {
                     for (Entity e : list) {
                         e.render(batch);
-                        batch.setColor(1,1,1,1);
+                        batch.setColor(1, 1, 1, 1);
                     }
                 }
 
@@ -97,6 +97,7 @@ public class IsometricWorldRenderer {
 
         batch.end();
     }
+
     public void dispose() {
         if (batch != null) batch.dispose();
         if (tileTexture != null) tileTexture.dispose();

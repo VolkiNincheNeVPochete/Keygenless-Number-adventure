@@ -1,113 +1,21 @@
 package com.kursach.keynumadv.world.map;
 
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class NormalParser {
 
     // ========== Контейнеры данных ==========
-
-    public static class TmxProperty {
-        public final String name;
-        public final String type;   // "string", "int", "float", "bool"
-        public final String value;  // сырое значение
-
-        public TmxProperty(String name, String type, String value) {
-            this.name = name;
-            this.type = type != null ? type : "string";
-            this.value = value != null ? value : "";
-        }
-
-        // === Typed getters с дефолтами ===
-        public String getString() { return value; }
-
-        public int getInt(int defaultValue) {
-            if (value == null || value.isEmpty()) return defaultValue;
-            try { return Integer.parseInt(value); }
-            catch (NumberFormatException e) { return defaultValue; }
-        }
-
-        public float getFloat(float defaultValue) {
-            if (value == null || value.isEmpty()) return defaultValue;
-            try { return Float.parseFloat(value); }
-            catch (NumberFormatException e) { return defaultValue; }
-        }
-
-        public boolean getBool(boolean defaultValue) {
-            if (value == null || value.isEmpty()) return defaultValue;
-            return value.equalsIgnoreCase("true") || value.equals("1");
-        }
-
-        @Override public String toString() {
-            return name + "=" + value + " (" + type + ")";
-        }
-    }
-
-    public static class TmxObject {
-        public int id = -1;
-        public String name;
-        public String type = "";
-        public float x, y;
-        public float width, height;
-        public String template;
-        public String gid;
-        public Map<String, TmxProperty> properties = new HashMap<>();
-
-        // === Convenience getters ===
-        public TmxProperty getProperty(String key) { return properties.get(key); }
-
-        public String getString(String key, String def) {
-            TmxProperty p = properties.get(key);
-            return p != null ? p.getString() : def;
-        }
-
-        public float getFloat(String key, float def) {
-            TmxProperty p = properties.get(key);
-            return p != null ? p.getFloat(def) : def;
-        }
-
-        public int getInt(String key, int def) {
-            TmxProperty p = properties.get(key);
-            return p != null ? p.getInt(def) : def;
-        }
-
-        public boolean getBool(String key, boolean def) {
-            TmxProperty p = properties.get(key);
-            return p != null ? p.getBool(def) : def;
-        }
-
-        public boolean hasProperty(String key) { return properties.containsKey(key); }
-
-        @Override public String toString() {
-            return "TmxObject{id=" + id + ", type='" + type + "', pos=(" + x + "," + y + "), props=" + properties + "}";
-        }
-    }
-
-    public static class TmxLayer {
-        public String name;
-        public int id;
-        public int width, height;
-        public List<TmxObject> objects = new ArrayList<>();
-
-        @Override public String toString() {
-            return "TmxLayer{name='" + name + "', objects=" + objects.size() + "}";
-        }
-    }
-
-    public static class TmxMap {
-        public String version;
-        public String orientation;
-        public int width, height;
-        public int tileWidth, tileHeight;
-        public List<TmxLayer> layers = new ArrayList<>();
-        public Map<String, String> tilesets = new HashMap<>();
-    }
-
-    // ========== MAIN PARSER ==========
 
     /**
      * Парсит TMX файл из пути
@@ -144,8 +52,6 @@ public class NormalParser {
         doc.getDocumentElement().normalize();
         return parseDocument(doc);
     }
-
-    // ========== Внутренняя логика парсинга ==========
 
     private static TmxMap parseDocument(Document doc) {
         TmxMap map = new TmxMap();
@@ -188,6 +94,8 @@ public class NormalParser {
 
         return map;
     }
+
+    // ========== MAIN PARSER ==========
 
     private static TmxLayer parseLayer(Element layerElem) {
         TmxLayer layer = new TmxLayer();
@@ -249,23 +157,29 @@ public class NormalParser {
         return obj;
     }
 
-    // ========== Helpers ==========
+    // ========== Внутренняя логика парсинга ==========
 
     private static int parseInt(String s, int def) {
         if (s == null || s.isEmpty()) return def;
-        try { return Integer.parseInt(s); } catch (NumberFormatException e) { return def; }
+        try {
+            return Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            return def;
+        }
     }
 
     private static float parseFloat(String s, float def) {
         if (s == null || s.isEmpty()) return def;
-        try { return Float.parseFloat(s); } catch (NumberFormatException e) { return def; }
+        try {
+            return Float.parseFloat(s);
+        } catch (NumberFormatException e) {
+            return def;
+        }
     }
 
     private static String nullIfEmpty(String s) {
         return (s == null || s.isEmpty()) ? null : s;
     }
-
-    // ========== Convenience: получить слой по имени ==========
 
     public static TmxLayer getLayerByName(TmxMap map, String layerName) {
         if (map == null || layerName == null) return null;
@@ -274,6 +188,8 @@ public class NormalParser {
         }
         return null;
     }
+
+    // ========== Helpers ==========
 
     public static List<TmxObject> getObjectsByType(TmxMap map, String objectType) {
         List<TmxObject> result = new ArrayList<>();
@@ -288,5 +204,118 @@ public class NormalParser {
             }
         }
         return result;
+    }
+
+    public static class TmxProperty {
+        public final String name;
+        public final String type;   // "string", "int", "float", "bool"
+        public final String value;  // сырое значение
+
+        public TmxProperty(String name, String type, String value) {
+            this.name = name;
+            this.type = type != null ? type : "string";
+            this.value = value != null ? value : "";
+        }
+
+        // === Typed getters с дефолтами ===
+        public String getString() {
+            return value;
+        }
+
+        public int getInt(int defaultValue) {
+            if (value == null || value.isEmpty()) return defaultValue;
+            try {
+                return Integer.parseInt(value);
+            } catch (NumberFormatException e) {
+                return defaultValue;
+            }
+        }
+
+        public float getFloat(float defaultValue) {
+            if (value == null || value.isEmpty()) return defaultValue;
+            try {
+                return Float.parseFloat(value);
+            } catch (NumberFormatException e) {
+                return defaultValue;
+            }
+        }
+
+        public boolean getBool(boolean defaultValue) {
+            if (value == null || value.isEmpty()) return defaultValue;
+            return value.equalsIgnoreCase("true") || value.equals("1");
+        }
+
+        @Override
+        public String toString() {
+            return name + "=" + value + " (" + type + ")";
+        }
+    }
+
+    public static class TmxObject {
+        public int id = -1;
+        public String name;
+        public String type = "";
+        public float x, y;
+        public float width, height;
+        public String template;
+        public String gid;
+        public Map<String, TmxProperty> properties = new HashMap<>();
+
+        // === Convenience getters ===
+        public TmxProperty getProperty(String key) {
+            return properties.get(key);
+        }
+
+        public String getString(String key, String def) {
+            TmxProperty p = properties.get(key);
+            return p != null ? p.getString() : def;
+        }
+
+        public float getFloat(String key, float def) {
+            TmxProperty p = properties.get(key);
+            return p != null ? p.getFloat(def) : def;
+        }
+
+        public int getInt(String key, int def) {
+            TmxProperty p = properties.get(key);
+            return p != null ? p.getInt(def) : def;
+        }
+
+        public boolean getBool(String key, boolean def) {
+            TmxProperty p = properties.get(key);
+            return p != null ? p.getBool(def) : def;
+        }
+
+        public boolean hasProperty(String key) {
+            return properties.containsKey(key);
+        }
+
+        @Override
+        public String toString() {
+            return "TmxObject{id=" + id + ", type='" + type + "', pos=(" + x + "," + y + "), props=" + properties + "}";
+        }
+    }
+
+    // ========== Convenience: получить слой по имени ==========
+
+    public static class TmxLayer {
+        public String name;
+        public int id;
+        public int width, height;
+        public List<TmxObject> objects = new ArrayList<>();
+
+        @Override
+        public String toString() {
+            return "TmxLayer{name='" + name + "', objects=" + objects.size() + "}";
+        }
+    }
+
+    public static class TmxMap {
+        public String version;
+        public String orientation;
+        public int width, height;
+        public int tileWidth, tileHeight;
+        public List<TmxLayer> layers = new ArrayList<>();
+        public Map<String, String> tilesets = new HashMap<>();
     }
 }

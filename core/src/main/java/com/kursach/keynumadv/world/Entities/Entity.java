@@ -9,20 +9,21 @@ import com.kursach.keynumadv.Interfaces.StepReactive;
 import com.kursach.keynumadv.world.BusyManager;
 import com.kursach.keynumadv.world.LocalRender;
 
-import java.util.*;
+import java.util.Timer;
 
 public abstract class Entity implements StepReactive {
+    protected static Player player;
+    protected static BusyManager busyManager;
     protected GridPoint2 tilePos;
     protected Vector2 pixPos;
     protected Texture texture;
-    protected static Player player;
-    protected static BusyManager busyManager;
-    public enum State{};
     protected boolean isFinished;
+
+    ;
     protected boolean isFinalized;
     protected Timer timer;
     protected ShaderProgram shaderProgram;
-    protected int OFFSET_X  = 0;
+    protected int OFFSET_X = 0;
     protected int OFFSET_TX = 0;
     protected int OFFSET_Y = 0;
     protected int OFFSET_TY = 0;
@@ -31,42 +32,56 @@ public abstract class Entity implements StepReactive {
         this.pixPos = LocalRender.TileToPixel(tilePos);
         init();
     }
+
     public Entity(GridPoint2 tilePos) {
         this.tilePos = tilePos;
         this.pixPos = LocalRender.TileToPixel(tilePos);
         init();
     }
+
+    public static void setPlayer(Player player) {
+        Entity.player = player;
+    }
+
+    public static void setBusyManager(BusyManager busyManager) {
+        Entity.busyManager = busyManager;
+    }
+
     protected void init() {
         this.isFinished = false;
     }
+
     public void SetPos(GridPoint2 tilePos) {
         this.tilePos = tilePos;
         this.pixPos = LocalRender.TileToPixel(tilePos);
     }
+
     public void SetPos(Vector2 pixPos) {
         this.pixPos = pixPos;
         this.tilePos = LocalRender.PixelToTile(pixPos);
     }
+
     public Vector2 GetPixPos() {
         return pixPos;
     }
+
     public GridPoint2 GetTilePos() {
         return tilePos;
     }
+
     public Vector2 getVisualPixelPosition() {
-        return new Vector2(pixPos.x+OFFSET_X, pixPos.y+OFFSET_Y);
+        return new Vector2(pixPos.x + OFFSET_X, pixPos.y + OFFSET_Y);
     }
+
     public GridPoint2 getVisualTilePosition() {
-        return new GridPoint2(tilePos.x+OFFSET_TX, tilePos.y+OFFSET_TY);
+        return new GridPoint2(tilePos.x + OFFSET_TX, tilePos.y + OFFSET_TY);
     }
+
     public void render(Batch batch, GridPoint2 tilePos) {
     }
+
     public void render(Batch batch) {
     }
-    public static void setPlayer(Player player) {
-        Entity.player = player;
-    }
-    public static void setBusyManager(BusyManager busyManager) {
-        Entity.busyManager = busyManager;
-    }
+
+    public enum State {}
 }

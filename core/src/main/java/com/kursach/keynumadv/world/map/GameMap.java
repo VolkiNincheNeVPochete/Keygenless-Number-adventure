@@ -12,7 +12,10 @@ import com.kursach.keynumadv.world.Entities.Portal;
 import com.kursach.keynumadv.world.Entities.Wall;
 
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static com.kursach.keynumadv.world.LocalRender.*;
 
@@ -26,7 +29,8 @@ public class GameMap {
     public int mapWidth;
     public int mapHeight;
     public Map<GridPoint2, ArrayList<Entity>> entities = new HashMap<>();
-    public GridPoint2 spawn = null;
+    private GridPoint2 spawn = null;
+    private float spawnValue = 1f;
     public TiledMap map;
 
     public GameMap(String tmxPath) {
@@ -58,10 +62,8 @@ public class GameMap {
         List<NormalParser.TmxObject> tmxObjects = tmxLayer.objects;
 
         for (int ind = 0; ind < objects.getCount(); ind++) {
-            MapObject                       obj = objects.get(ind);
-            NormalParser.TmxObject     tmxObj = tmxObjects.get(ind);
-
-            System.out.println(obj + " + " + tmxObj);
+            MapObject obj = objects.get(ind);
+            NormalParser.TmxObject tmxObj = tmxObjects.get(ind);
 
             String type = null;
             if (!(obj instanceof RectangleMapObject)) continue;
@@ -75,7 +77,7 @@ public class GameMap {
             Entity entity = switch (type) {
                 case "wall" -> new Wall();
                 case "portal" -> new Portal();
-                case "enemy" -> new Enemy(tmxObj.getFloat("VALUE",1f));
+                case "enemy" -> new Enemy(tmxObj.getFloat("VALUE", 1f));
                 default -> null;
             };
 
@@ -89,21 +91,26 @@ public class GameMap {
             if ("spawn".equals(type)) {
                 GridPoint2 tilePos = GridPixelToTile(worldX, worldY);
                 spawn = tilePos;
+                spawnValue = tmxObj.getFloat("VALUE", 1f);
             }
         }
     }
 
-    public static float getWidth() {
+    public float getWidth() {
         return widthInPixels + offsetX;
     }
 
-    public static float getHeight() {
+    public float getHeight() {
         return heightInPixels - tileHeight + offsetY;
     }
 
     public GridPoint2 getSpawnTile() {
         if (spawn == null) return new GridPoint2(0, 0);
         return spawn;
+    }
+
+    public float getSpawnValue() {
+        return spawnValue;
     }
 
     public ArrayList<Entity> getEntitiesOnTile(GridPoint2 tile) {
