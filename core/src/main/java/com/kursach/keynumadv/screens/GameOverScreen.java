@@ -13,17 +13,20 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class GameOverScreen extends BaseScreen {
     private final float playerValue;
+    private String levelPath;
     private final TextButton restartButton = new TextButton("Restart", skin);
     private final TextButton menuButton = new TextButton("Main Menu", skin);
     private Label scoreLabel;
 
-    public GameOverScreen(float playerValue) {
+    public GameOverScreen(float playerValue, String levelPath) {
         super();
+        this.levelPath = levelPath;
         this.playerValue = playerValue;
     }
 
-    public GameOverScreen(Game myGame, float playerValue) {
+    public GameOverScreen(Game myGame, float playerValue, String levelPath) {
         super(myGame);
+        this.levelPath = levelPath;
         this.playerValue = playerValue;
     }
 
@@ -57,7 +60,7 @@ public class GameOverScreen extends BaseScreen {
             restartButton.addListener(new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
-                    ScreenManager.ShowGame();
+                    ScreenManager.ShowGame(levelPath);
                 }
             });
 

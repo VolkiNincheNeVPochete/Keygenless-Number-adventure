@@ -15,6 +15,7 @@ import com.kursach.keynumadv.world.BusyManager;
 import com.kursach.keynumadv.world.Entities.CameraController;
 import com.kursach.keynumadv.world.Entities.Entity;
 import com.kursach.keynumadv.world.Entities.Player;
+import com.kursach.keynumadv.world.GeneralEvents;
 import com.kursach.keynumadv.world.map.GameMap;
 import com.kursach.keynumadv.world.map.IsometricWorldRenderer;
 
@@ -47,6 +48,8 @@ public class GameScreen extends BaseScreen {
     }
 
     private void init() {
+        GeneralEvents.setLevelPath(levelPath);
+
         batch = new SpriteBatch();
 
         stage = new Stage();

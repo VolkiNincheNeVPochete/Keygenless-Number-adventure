@@ -36,7 +36,7 @@ public class Player {
     private TextureRegion[][] sprites;
     private int currentDirection = 0;
     private TextureRegion currentFrame;
-    private float animTime = 0f;
+    private float animTime;
     private float spriteScale = 2.0f;
 
     public Player(GridPoint2 spawnTile, float spawnValue, BusyManager busyManager) {

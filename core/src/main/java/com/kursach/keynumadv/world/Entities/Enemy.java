@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.math.Vector2;
 import com.kursach.keynumadv.screens.GameOverScreen;
 import com.kursach.keynumadv.screens.ScreenManager;
+import com.kursach.keynumadv.world.GeneralEvents;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -87,7 +88,8 @@ public class Enemy extends Entity {
                 }
             }, 0, 10);
         } else if (state == State.WINNING) {
-            ScreenManager.pushScreen(new GameOverScreen(currentPlayer.getVALUE()));
+            GeneralEvents.setPlayerScore(currentPlayer.getVALUE());
+            GeneralEvents.ShowGameOver();
         }
     }
 

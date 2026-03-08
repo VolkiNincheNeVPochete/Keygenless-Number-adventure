@@ -13,19 +13,22 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class LevelCompleteScreen extends BaseScreen {
     private final float playerValue;
+    private String levelPath;
     private final TextButton nextLevelButton = new TextButton("Next Level", skin);
     private final TextButton restartButton = new TextButton("Restart", skin);
     private final TextButton menuButton = new TextButton("Main Menu", skin);
     private Label scoreLabel;
     private Label valueLabel;
 
-    public LevelCompleteScreen(float playerValue) {
+    public LevelCompleteScreen(float playerValue, String levelPath) {
         super();
+        this.levelPath = levelPath;
         this.playerValue = playerValue;
     }
 
-    public LevelCompleteScreen(Game myGame, float playerValue) {
+    public LevelCompleteScreen(Game myGame, float playerValue, String levelPath) {
         super(myGame);
+        this.levelPath = levelPath;
         this.playerValue = playerValue;
     }
     @Override
@@ -59,14 +62,14 @@ public class LevelCompleteScreen extends BaseScreen {
             nextLevelButton.addListener(new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
-                    ScreenManager.ShowLevelSelectScreen(); // Или логика следующего уровня
+                    ScreenManager.ShowLevelSelectScreen();
                 }
             });
 
             restartButton.addListener(new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
-                    ScreenManager.ShowGame();
+                    ScreenManager.ShowGame(levelPath);
                 }
             });
 

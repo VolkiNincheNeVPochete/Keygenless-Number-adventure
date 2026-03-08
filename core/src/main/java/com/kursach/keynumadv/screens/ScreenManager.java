@@ -70,16 +70,16 @@ public class ScreenManager {
         myGame.setScreen(createdScreen);
     }
 
-    public static void ShowLevelCompleteScreen(float value) {
+    public static void ShowLevelCompleteScreen(float value, String levelPath) {
         screenStack.clear();
-        createdScreen = new LevelCompleteScreen(value);
+        createdScreen = new LevelCompleteScreen(value, levelPath);
         screenStack.add(createdScreen);
         myGame.setScreen(createdScreen);
     }
 
-    public static void ShowGameOverScreen(float value) {
+    public static void ShowGameOverScreen(float value, String levelPath) {
         screenStack.clear();
-        createdScreen = new GameOverScreen(myGame, value);
+        createdScreen = new GameOverScreen(myGame, value, levelPath);
         screenStack.add(createdScreen);
         myGame.setScreen(createdScreen);
     }

@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.GridPoint2;
 import com.kursach.keynumadv.screens.ScreenManager;
+import com.kursach.keynumadv.world.GeneralEvents;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -59,7 +60,8 @@ public class Portal extends Entity {
 
     @Override
     public void onFinish(Player currentPlayer) {
-        ScreenManager.ShowLevelCompleteScreen(currentPlayer.getVALUE());
+        GeneralEvents.setPlayerScore(currentPlayer.getVALUE());
+        GeneralEvents.ShowLevelComplete();
     }
 
     @Override
