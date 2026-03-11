@@ -19,10 +19,6 @@ public class CameraController {
     public void follow(Vector2 target) {
         camera.position.x = target.x;
         camera.position.y = target.y;
-
-//        camera.position.x = MathUtils.clamp(camera.position.x, viewportWidth / 2f, levelWidth - viewportWidth / 2f);
-//        camera.position.y = MathUtils.clamp(camera.position.y, viewportHeight / 2f, levelHeight - viewportHeight / 2f);
-
         camera.update();
     }
 }

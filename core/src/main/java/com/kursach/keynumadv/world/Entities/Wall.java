@@ -12,8 +12,6 @@ public class Wall extends Entity {
         super();
     }
 
-    ;
-
     public Wall(GridPoint2 tilePos) {
         super(tilePos);
     }

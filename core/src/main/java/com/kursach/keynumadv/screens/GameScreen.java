@@ -24,6 +24,7 @@ import static com.kursach.keynumadv.world.LocalRender.*;
 
 public class GameScreen extends BaseScreen {
     public GameMap gameMap;
+    private String levelPath;
     private Player player;
     private CameraController cameraController;
     private OrthographicCamera camera;
@@ -33,7 +34,6 @@ public class GameScreen extends BaseScreen {
     private BusyManager busyManager;
     private Stage stage;
     private Label valueLabel;
-    private String levelPath;
 
     public GameScreen(Game myGame) {
         super(myGame);
@@ -49,6 +49,8 @@ public class GameScreen extends BaseScreen {
 
     private void init() {
         GeneralEvents.setLevelPath(levelPath);
+        Entity.setPlayer(player);
+        Entity.setBusyManager(busyManager);
 
         batch = new SpriteBatch();
 
@@ -70,23 +72,14 @@ public class GameScreen extends BaseScreen {
         busyManager = new BusyManager();
         player = new Player(gameMap.getSpawnTile(), gameMap.getSpawnValue(), busyManager);
 
-        Entity.setPlayer(player);
-        Entity.setBusyManager(busyManager);
-
         cameraController = new CameraController(
             camera,
             gameMap.getWidth(),
             gameMap.getHeight()
         );
-
         cameraController.follow(player.getVisualPixelPosition());
         renderer = new IsometricTiledMapRenderer(gameMap.map);
         entityRenderer = new IsometricWorldRenderer((int) gameMap.getWidth(), (int) gameMap.getHeight());
-    }
-
-    @Override
-    public void show() {
-
     }
 
     @Override
@@ -114,35 +107,46 @@ public class GameScreen extends BaseScreen {
     }
 
     @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public void resume() {
-
-    }
-
-    @Override
-    public void hide() {
-
-    }
-
-    @Override
     public void dispose() {
-        if (gameMap != null) gameMap.dispose();
-        if (batch != null) batch.dispose();
-        if (stage != null) stage.dispose();
+        if (gameMap != null) {
+            gameMap.dispose();
+            gameMap = null;
+        }
+        if (batch != null) {
+            batch.dispose();
+            batch = null;
+        }
+        if (stage != null) {
+            stage.dispose();
+            stage = null;
+        }
+        if (entityRenderer != null) {
+            entityRenderer.dispose();
+            entityRenderer = null;
+        }
+        if (player != null) {
+            player.dispose();
+            player = null;
+        }
     }
 
     private void handleInput() {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            ScreenManager.pushScreen(new PauseScreen(myGame));
+            return;
+        }
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) |
+            Gdx.input.isKeyJustPressed(Input.Keys.W)) {
             player.tryMove(0, 1, gameMap);
-        } else if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN) |
+            Gdx.input.isKeyJustPressed(Input.Keys.S)) {
             player.tryMove(0, -1, gameMap);
-        } else if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT) |
+            Gdx.input.isKeyJustPressed(Input.Keys.D)) {
             player.tryMove(1, 0, gameMap);
-        } else if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT) |
+            Gdx.input.isKeyJustPressed(Input.Keys.A)) {
             player.tryMove(-1, 0, gameMap);
         }
     }

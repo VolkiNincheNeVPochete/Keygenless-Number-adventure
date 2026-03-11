@@ -2,6 +2,7 @@ package com.kursach.keynumadv.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -9,13 +10,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class PauseScreen extends BaseScreen {
-    private final TextButton resumeButton = new TextButton("Resume", skin);
-    private final TextButton settingButton = new TextButton("Settings", skin);
-    private final TextButton menuButton = new TextButton("Main Menu", skin);
-
-    public PauseScreen() {
-        super();
-    }
+    private final TextButton resumeButton = new TextButton("Resume", SKIN);
+    private final TextButton menuButton = new TextButton("Main Menu", SKIN);
 
     public PauseScreen(Game myGame) {
         super(myGame);
@@ -23,49 +19,43 @@ public class PauseScreen extends BaseScreen {
 
     @Override
     public void show() {
-        if (stage == null) {
-            stage = new Stage();
+        stage = new Stage();
 
-            resumeButton.addListener(new ClickListener() {
-                @Override
-                public void clicked(InputEvent event, float x, float y) {
-                    ScreenManager.popScreen();
-                }
-            });
+        resumeButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                ScreenManager.popScreen();
+            }
+        });
 
-            settingButton.addListener(new ClickListener() {
-                @Override
-                public void clicked(InputEvent event, float x, float y) {
-                    ScreenManager.pushScreen(new SettingsScreen());
-                }
-            });
-
-            menuButton.addListener(new ClickListener() {
-                @Override
-                public void clicked(InputEvent event, float x, float y) {
-                    ScreenManager.ShowMainMenu();
-                }
-            });
+        menuButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                ScreenManager.ShowMainMenu();
+            }
+        });
 
 
-            table.center().pad(20);
-            table.add(resumeButton).size(200, 50).pad(10).row();
-            table.add(settingButton).size(200, 50).pad(10).row();
-            table.add(menuButton).size(200, 50).pad(10);
+        table.center().pad(20);
+        table.add(resumeButton).size(200, 50).pad(10).row();
+        table.add(menuButton).size(200, 50).pad(10);
 
-            stage.addActor(table);
-        }
+        stage.addActor(table);
 
         Gdx.input.setInputProcessor(stage);
     }
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(1, 1, 1, 0.7f);
+        Gdx.gl.glClearColor(0.5f, 0.5f, 0.5f, 0.5f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        stage.act(delta);
         stage.draw();
+        stage.act(delta);
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            ScreenManager.popScreen();
+        }
     }
 
     @Override

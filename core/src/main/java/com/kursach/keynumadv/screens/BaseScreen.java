@@ -2,7 +2,6 @@ package com.kursach.keynumadv.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -12,22 +11,16 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
 public class BaseScreen extends ScreenAdapter {
     protected static Game myGame;
-    protected static Skin skin = new Skin(Gdx.files.internal("commodore64/skin/uiskin.json"));
+    protected static Skin SKIN = new Skin(Gdx.files.internal("commodore64/skin/uiskin.json"));
     protected Stage stage;
     protected Table table;
-    protected Screen self;
-
-    public BaseScreen() {
-        this.self = this;
-        this.table = new Table(skin);
-        table.setFillParent(true);
-    }
 
     public BaseScreen(Game myGame) {
         BaseScreen.myGame = myGame;
-        this.self = this;
-        this.table = new Table(skin);
+        this.stage = new Stage();
+        this.table = new Table(SKIN);
         table.setFillParent(true);
+        stage.addActor(table);
     }
 
     @Override
@@ -46,7 +39,9 @@ public class BaseScreen extends ScreenAdapter {
 
     @Override
     public void resize(int width, int height) {
-
+        if (stage != null) {
+            stage.getViewport().update(width, height, true);
+        }
     }
 
     @Override
@@ -66,6 +61,9 @@ public class BaseScreen extends ScreenAdapter {
 
     @Override
     public void dispose() {
-        if (stage != null) stage.dispose();
+        if (stage != null) {
+            stage.dispose();
+            stage = null;
+        }
     }
 }

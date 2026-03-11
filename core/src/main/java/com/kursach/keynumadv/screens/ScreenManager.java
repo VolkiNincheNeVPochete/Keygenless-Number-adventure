@@ -33,13 +33,10 @@ public class ScreenManager {
     }
 
     public static void ShowMainMenu() {
-        createdScreen = new MainMenuScreen();
         screenStack.clear();
+        createdScreen = new MainMenuScreen(myGame);
+        screenStack.add(createdScreen);
         myGame.setScreen(createdScreen);
-    }
-
-    public static void ShowGame() {
-        ShowGame("maps/level1.tmx");
     }
 
     public static void ShowGame(String levelPath) {
@@ -49,16 +46,9 @@ public class ScreenManager {
         myGame.setScreen(createdScreen);
     }
 
-    public static void ShowSettings() {
-        screenStack.clear();
-        createdScreen = new SettingsScreen();
-        screenStack.add(createdScreen);
-        myGame.setScreen(createdScreen);
-    }
-
     public static void ShowPauseScreen() {
         screenStack.clear();
-        createdScreen = new PauseScreen();
+        createdScreen = new PauseScreen(myGame);
         screenStack.add(createdScreen);
         myGame.setScreen(createdScreen);
     }
@@ -72,7 +62,7 @@ public class ScreenManager {
 
     public static void ShowLevelCompleteScreen(float value, String levelPath) {
         screenStack.clear();
-        createdScreen = new LevelCompleteScreen(value, levelPath);
+        createdScreen = new LevelCompleteScreen(myGame, value, levelPath);
         screenStack.add(createdScreen);
         myGame.setScreen(createdScreen);
     }

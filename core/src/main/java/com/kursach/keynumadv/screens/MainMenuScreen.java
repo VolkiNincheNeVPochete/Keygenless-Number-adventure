@@ -9,13 +9,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class MainMenuScreen extends BaseScreen {
-    private final TextButton playButton = new TextButton("Start", skin);
-    private final TextButton settingButton = new TextButton("Settings", skin);
-    private final TextButton exitButton = new TextButton("Exit", skin);
-
-    public MainMenuScreen() {
-        super();
-    }
+    private final TextButton playButton = new TextButton("Start", SKIN);
+    private final TextButton exitButton = new TextButton("Exit", SKIN);
 
     public MainMenuScreen(Game myGame) {
         super(myGame);
@@ -23,45 +18,33 @@ public class MainMenuScreen extends BaseScreen {
 
     @Override
     public void show() {
-        if (stage == null) {
-            stage = new Stage();
+        stage = new Stage();
 
-            table.setFillParent(true);
-            table.center().pad(20);
+        table.setFillParent(true);
+        table.center().pad(20);
 
-            table.add(playButton).size(200, 50).pad(10).row();
-            table.add(settingButton).size(200, 50).pad(10).row();
-            table.add(exitButton).size(200, 50).pad(10);
+        table.add(playButton).size(200, 50).pad(10).row();
+        table.add(exitButton).size(200, 50).pad(10);
 
-            playButton.setPosition(100f, 100f);
-            settingButton.setPosition(100f, 400f);
-            exitButton.setPosition(100f, 700f);
+        playButton.setPosition(100f, 100f);
+        exitButton.setPosition(100f, 700f);
 
-            stage.addActor(playButton);
-            stage.addActor(settingButton);
-            stage.addActor(exitButton);
+        stage.addActor(playButton);
+        stage.addActor(exitButton);
 
-            playButton.addListener(new ClickListener() {
-                @Override
-                public void clicked(InputEvent event, float x, float y) {
-                    ScreenManager.ShowLevelSelectScreen();
-                }
-            });
+        playButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                ScreenManager.ShowLevelSelectScreen();
+            }
+        });
 
-            settingButton.addListener(new ClickListener() {
-                @Override
-                public void clicked(InputEvent event, float x, float y) {
-                    ScreenManager.pushScreen(new SettingsScreen(myGame));
-                }
-            });
-
-            exitButton.addListener(new ClickListener() {
-                @Override
-                public void clicked(InputEvent event, float x, float y) {
-                    ScreenManager.exit();
-                }
-            });
-        }
+        exitButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                ScreenManager.exit();
+            }
+        });
 
         Gdx.input.setInputProcessor(stage);
     }

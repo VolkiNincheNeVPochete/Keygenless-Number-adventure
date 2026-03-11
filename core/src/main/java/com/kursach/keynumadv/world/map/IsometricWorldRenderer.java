@@ -99,7 +99,13 @@ public class IsometricWorldRenderer {
     }
 
     public void dispose() {
-        if (batch != null) batch.dispose();
-        if (tileTexture != null) tileTexture.dispose();
+        if (batch != null) {
+            batch.dispose();
+            batch = null;
+        }
+        if (tileTexture != null) {
+            tileTexture.dispose();
+            tileTexture = null;
+        }
     }
 }

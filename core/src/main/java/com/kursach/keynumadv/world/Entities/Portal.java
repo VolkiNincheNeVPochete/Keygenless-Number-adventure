@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.GridPoint2;
-import com.kursach.keynumadv.screens.ScreenManager;
 import com.kursach.keynumadv.world.GeneralEvents;
 
 import java.util.Timer;
@@ -21,6 +20,13 @@ public class Portal extends Entity {
 
     public Portal(GridPoint2 tilePos) {
         super(tilePos);
+    }
+
+    public static void dispose() {
+        if (texture != null) {
+            texture.dispose();
+            texture = null;
+        }
     }
 
     @Override

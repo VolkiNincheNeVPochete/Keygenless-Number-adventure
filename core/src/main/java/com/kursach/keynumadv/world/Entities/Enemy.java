@@ -7,8 +7,6 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.math.Vector2;
-import com.kursach.keynumadv.screens.GameOverScreen;
-import com.kursach.keynumadv.screens.ScreenManager;
 import com.kursach.keynumadv.world.GeneralEvents;
 
 import java.util.Timer;
@@ -39,6 +37,17 @@ public class Enemy extends Entity {
     public Enemy(float thisValue) {
         super();
         this.VALUE = thisValue;
+    }
+
+    public static void dispose() {
+        if (texture != null) {
+            texture.dispose();
+            texture = null;
+        }
+        if (valueFont != null) {
+            valueFont.dispose();
+            valueFont = null;
+        }
     }
 
     @Override

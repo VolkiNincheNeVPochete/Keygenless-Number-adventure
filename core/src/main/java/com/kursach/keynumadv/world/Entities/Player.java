@@ -181,4 +181,15 @@ public class Player {
 
         batch.draw(currentFrame, drawX, drawY, spriteWidth, spriteHeight);
     }
+
+    public void dispose() {
+        if (playerFont != null) {
+            playerFont.dispose();
+            playerFont = null;
+        }
+        if (playerSheet != null) {
+            playerSheet.dispose();
+            playerSheet = null;
+        }
+    }
 }

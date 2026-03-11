@@ -27,6 +27,7 @@ public abstract class Entity implements StepReactive {
     protected int OFFSET_TX = 0;
     protected int OFFSET_Y = 0;
     protected int OFFSET_TY = 0;
+
     public Entity() {
         this.tilePos = new GridPoint2(0, 0);
         this.pixPos = LocalRender.TileToPixel(tilePos);
